@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Linia Wellness SEO Audit — YukariSEO</title>
+<style>
+  :root {
+    --linia-dark: #1A3C34;
+    --linia-mid: #2D6A4F;
+    --linia-light: #40C9A2;
+    --linia-mint: #D8F3DC;
+    --linia-pale: #F0FFF4;
+    --linia-gold: #B7A47E;
+    --linia-cream: #FAF8F3;
+    --text: #1a1a2e;
+    --muted: #6b7280;
+    --red: #dc2626;
+    --amber: #d97706;
+    --green: #16a34a;
+    --red-bg: #fef2f2;
+    --amber-bg: #fffbeb;
+    --green-bg: #f0fdf4;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Inter',system-ui,sans-serif;background:#f8faf9;color:var(--text);line-height:1.6;}
+  /* Header */
+  .report-header{background:linear-gradient(135deg,var(--linia-dark) 0%,var(--linia-mid) 60%,#1a5c42 100%);color:#fff;padding:60px 40px 40px;position:relative;overflow:hidden;}
+  .report-header::before{content:'';position:absolute;top:-50px;right:-50px;width:300px;height:300px;background:rgba(64,201,162,0.1);border-radius:50%;}
+  .report-header::after{content:'';position:absolute;bottom:-80px;left:20%;width:200px;height:200px;background:rgba(183,164,126,0.08);border-radius:50%;}
+  .header-inner{max-width:1100px;margin:0 auto;position:relative;z-index:2;}
+  .brand-row{display:flex;align-items:center;gap:16px;margin-bottom:28px;}
+  .yukari-badge{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);padding:8px 16px;border-radius:50px;font-size:13px;font-weight:600;letter-spacing:1px;color:rgba(255,255,255,0.9);}
+  .linia-badge{background:var(--linia-light);color:var(--linia-dark);padding:8px 16px;border-radius:50px;font-size:13px;font-weight:700;}
+  h1.report-title{font-size:42px;font-weight:800;line-height:1.1;margin-bottom:12px;letter-spacing:-1px;}
+  h1.report-title span{color:var(--linia-light);}
+  .report-sub{font-size:16px;color:rgba(255,255,255,0.75);margin-bottom:28px;}
+  .header-meta{display:flex;gap:24px;flex-wrap:wrap;}
+  .meta-item{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);padding:10px 18px;border-radius:10px;font-size:13px;}
+  .meta-item strong{display:block;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--linia-light);margin-bottom:2px;}
+  /* Score bar */
+  .score-bar{background:#fff;border-bottom:1px solid #e5e7eb;padding:24px 40px;}
+  .score-bar-inner{max-width:1100px;margin:0 auto;display:flex;gap:20px;flex-wrap:wrap;align-items:center;}
+  .score-label{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-right:8px;}
+  .score-card{display:flex;align-items:center;gap:10px;background:var(--linia-pale);border:1px solid var(--linia-mint);border-radius:10px;padding:10px 16px;}
+  .score-circle{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;color:#fff;}
+  .score-circle.good{background:var(--linia-mid);}
+  .score-circle.warn{background:var(--amber);}
+  .score-circle.bad{background:var(--red);}
+  .score-name{font-size:12px;font-weight:600;color:var(--text);}
+  /* Nav */
+  .sticky-nav{position:sticky;top:0;z-index:100;background:var(--linia-dark);padding:0 40px;}
+  .nav-inner{max-width:1100px;margin:0 auto;display:flex;gap:4px;overflow-x:auto;}
+  .nav-link{color:rgba(255,255,255,0.7);text-decoration:none;padding:14px 16px;font-size:13px;font-weight:500;white-space:nowrap;border-bottom:2px solid transparent;transition:all .2s;}
+  .nav-link:hover,.nav-link.active{color:#fff;border-bottom-color:var(--linia-light);}
+  /* Main */
+  .container{max-width:1100px;margin:0 auto;padding:40px;}
+  /* Section */
+  .section{margin-bottom:60px;}
+  .section-header{display:flex;align-items:center;gap:16px;margin-bottom:28px;padding-bottom:16px;border-bottom:2px solid var(--linia-mint);}
+  .section-icon{width:44px;height:44px;background:var(--linia-mid);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
+  .section-title{font-size:26px;font-weight:800;color:var(--linia-dark);}
+  .section-desc{font-size:14px;color:var(--muted);margin-top:2px;}
+  /* Summary box */
+  .summary-box{background:var(--linia-pale);border:1px solid var(--linia-mint);border-left:4px solid var(--linia-mid);border-radius:12px;padding:20px 24px;margin-bottom:24px;}
+  .summary-box h4{font-size:14px;font-weight:700;color:var(--linia-dark);margin-bottom:8px;}
+  .summary-box p{font-size:14px;color:var(--text);line-height:1.7;}
+  /* Priority grid */
+  .priority-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;margin-bottom:28px;}
+  .priority-card{border-radius:12px;padding:20px;border:1px solid;transition:transform .2s;}
+  .priority-card:hover{transform:translateY(-2px);}
+  .priority-card.high{background:var(--red-bg);border-color:#fecaca;}
+  .priority-card.med{background:var(--amber-bg);border-color:#fde68a;}
+  .priority-card.low{background:var(--green-bg);border-color:#bbf7d0;}
+  .priority-tag{display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:3px 8px;border-radius:20px;margin-bottom:10px;}
+  .priority-tag.high{background:#dc2626;color:#fff;}
+  .priority-tag.med{background:#d97706;color:#fff;}
+  .priority-tag.low{background:#16a34a;color:#fff;}
+  .priority-card h4{font-size:14px;font-weight:700;color:var(--text);margin-bottom:6px;line-height:1.4;}
+  .priority-card p{font-size:13px;color:var(--muted);line-height:1.5;}
+  /* Table */
+  .data-table{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:24px;border-radius:10px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.08);}
+  .data-table th{background:var(--linia-dark);color:#fff;padding:11px 14px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.5px;font-weight:600;}
+  .data-table td{padding:10px 14px;border-bottom:1px solid #f0f0f0;vertical-align:top;line-height:1.5;}
+  .data-table tr:nth-child(even) td{background:#f9fbfa;}
+  .data-table tr:last-child td{border-bottom:none;}
+  .data-table tr:hover td{background:var(--linia-pale);}
+  /* Badges */
+  .badge{display:inline-block;padding:3px 8px;border-radius:20px;font-size:11px;font-weight:600;}
+  .badge-red{background:#fee2e2;color:#dc2626;}
+  .badge-amber{background:#fef3c7;color:#b45309;}
+  .badge-green{background:#dcfce7;color:#16a34a;}
+  .badge-blue{background:#dbeafe;color:#1d4ed8;}
+  .badge-teal{background:var(--linia-mint);color:var(--linia-dark);}
+  /* Metric cards */
+  .metrics-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px;margin-bottom:28px;}
+  .metric-card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:18px;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,.05);}
+  .metric-value{font-size:28px;font-weight:800;color:var(--linia-dark);line-height:1;}
+  .metric-value.warn{color:var(--amber);}
+  .metric-value.bad{color:var(--red);}
+  .metric-value.good{color:var(--green);}
+  .metric-label{font-size:11px;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:.5px;font-weight:600;}
+  .metric-note{font-size:11px;color:var(--muted);margin-top:6px;font-style:italic;}
+  /* CWV bar */
+  .cwv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin-bottom:28px;}
+  .cwv-card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:18px;box-shadow:0 1px 3px rgba(0,0,0,.05);}
+  .cwv-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:8px;}
+  .cwv-value{font-size:22px;font-weight:800;margin-bottom:4px;}
+  .cwv-value.good{color:var(--green);}
+  .cwv-value.warn{color:var(--amber);}
+  .cwv-value.bad{color:var(--red);}
+  .cwv-target{font-size:11px;color:var(--muted);}
+  .cwv-bar{height:6px;border-radius:3px;background:#e5e7eb;margin-top:10px;}
+  .cwv-bar-fill{height:100%;border-radius:3px;}
+  .cwv-bar-fill.good{background:var(--green);}
+  .cwv-bar-fill.warn{background:var(--amber);}
+  .cwv-bar-fill.bad{background:var(--red);}
+  /* CRO wireframe */
+  .wireframe-section{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:28px;margin-bottom:28px;}
+  .wireframe-section h4{font-size:16px;font-weight:700;color:var(--linia-dark);margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid #f0f0f0;}
+  .wireframe{border:2px dashed #cbd5e1;border-radius:12px;padding:20px;background:#f8fafc;margin-bottom:16px;font-family:monospace;}
+  .wf-hero{background:linear-gradient(135deg,var(--linia-dark),var(--linia-mid));color:#fff;border-radius:8px;padding:20px;text-align:center;margin-bottom:12px;}
+  .wf-hero h3{font-size:18px;font-family:system-ui;margin-bottom:8px;}
+  .wf-hero p{font-size:12px;opacity:.8;font-family:system-ui;}
+  .wf-cta{display:inline-block;background:var(--linia-light);color:var(--linia-dark);padding:10px 24px;border-radius:25px;font-weight:700;font-size:13px;margin-top:12px;font-family:system-ui;}
+  .wf-trust{display:flex;gap:12px;justify-content:center;margin-top:12px;flex-wrap:wrap;}
+  .wf-trust-item{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);padding:6px 12px;border-radius:20px;font-size:11px;font-family:system-ui;}
+  .wf-section{background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:14px;margin-bottom:10px;}
+  .wf-section-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted);font-family:system-ui;margin-bottom:8px;}
+  .wf-review{background:#f9fafb;border-left:3px solid var(--linia-light);padding:10px 12px;border-radius:0 6px 6px 0;font-size:12px;font-family:system-ui;margin-bottom:8px;}
+  .wf-price-card{border:1px solid #e5e7eb;border-radius:8px;padding:14px;text-align:center;font-family:system-ui;}
+  .wf-price-card.featured{border-color:var(--linia-light);background:var(--linia-pale);}
+  .wf-price{font-size:22px;font-weight:800;color:var(--linia-dark);font-family:system-ui;}
+  .wf-price-label{font-size:11px;color:var(--muted);font-family:system-ui;}
+  .wf-sticky{position:relative;background:var(--linia-dark);color:#fff;padding:12px 20px;border-radius:8px;font-size:12px;font-family:system-ui;display:flex;justify-content:space-between;align-items:center;}
+  .wf-sticky-btn{background:var(--linia-light);color:var(--linia-dark);padding:8px 16px;border-radius:20px;font-weight:700;font-size:12px;}
+  .annotation{background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:12px 14px;font-size:12px;color:#92400e;margin-top:8px;display:flex;gap:8px;align-items:flex-start;}
+  .annotation::before{content:'💡';flex-shrink:0;}
+  /* Keywords visual */
+  .kw-pill{display:inline-flex;align-items:center;gap:6px;background:var(--linia-pale);border:1px solid var(--linia-mint);border-radius:20px;padding:4px 10px;font-size:12px;margin:3px;color:var(--linia-dark);}
+  .kw-vol{background:var(--linia-mid);color:#fff;padding:1px 6px;border-radius:10px;font-size:10px;font-weight:700;}
+  /* Blog audit */
+  .blog-card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:22px;margin-bottom:20px;border-left:4px solid var(--linia-mid);}
+  .blog-card.high-priority{border-left-color:var(--red);}
+  .blog-url{font-size:12px;font-weight:600;color:var(--linia-mid);margin-bottom:12px;font-family:monospace;}
+  .blog-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:14px;}
+  .blog-col h5{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:8px;}
+  .blog-col ul{padding-left:16px;}
+  .blog-col li{font-size:13px;color:var(--text);margin-bottom:5px;line-height:1.4;}
+  .entity-cluster{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;}
+  .entity-pill{background:#e0f2fe;color:#0369a1;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:500;}
+  /* Local SEO */
+  .gmb-checklist{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-bottom:24px;}
+  .gmb-item{background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:14px;}
+  .gmb-status{display:inline-block;font-size:18px;margin-bottom:6px;}
+  .gmb-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:4px;}
+  .gmb-action{font-size:12px;color:var(--muted);line-height:1.4;}
+  /* Off-page */
+  .competitor-table{background:#fff;}
+  /* Footer */
+  .report-footer{background:var(--linia-dark);color:rgba(255,255,255,.6);text-align:center;padding:40px;font-size:13px;margin-top:60px;}
+  .report-footer strong{color:var(--linia-light);}
+  /* Responsive */
+  @media(max-width:768px){
+    h1.report-title{font-size:28px;}
+    .container{padding:20px;}
+    .blog-grid{grid-template-columns:1fr;}
+    .priority-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="report-header">
+  <div class="header-inner">
+    <div class="brand-row">
+      <span class="yukari-badge">⚡ YUKARISEO</span>
+      <span class="linia-badge">🌿 LINIA WELLNESS</span>
+    </div>
+    <h1 class="report-title">Comprehensive SEO Audit<br><span>liniawellness.co.uk</span></h1>
+    <p class="report-sub">GLP-1 Weight Loss Focus · Technical · On-Page · Off-Page · Local SEO · CRO · Blog Content</p>
+    <div class="header-meta">
+      <div class="meta-item"><strong>Date</strong>April 2026</div>
+      <div class="meta-item"><strong>Domain</strong>liniawellness.co.uk</div>
+      <div class="meta-item"><strong>Focus</strong>Wegovy · Mounjaro · GLP-1 · Weight Loss</div>
+      <div class="meta-item"><strong>Prepared by</strong>YukariSEO</div>
+      <div class="meta-item"><strong>Data Sources</strong>DataForSEO · Lighthouse · Sitemaps</div>
+    </div>
+  </div>
+</div>
+
+<!-- SCORES -->
+<div class="score-bar">
+  <div class="score-bar-inner">
+    <span class="score-label">Lighthouse Scores:</span>
+    <div class="score-card">
+      <div class="score-circle warn">75</div>
+      <div><div class="score-name">Performance</div><div style="font-size:11px;color:var(--muted)">Needs work</div></div>
+    </div>
+    <div class="score-card">
+      <div class="score-circle good">87</div>
+      <div><div class="score-name">Accessibility</div><div style="font-size:11px;color:var(--muted)">Good</div></div>
+    </div>
+    <div class="score-card">
+      <div class="score-circle warn">77</div>
+      <div><div class="score-name">Best Practices</div><div style="font-size:11px;color:var(--muted)">Needs work</div></div>
+    </div>
+    <div class="score-card">
+      <div class="score-circle good">100</div>
+      <div><div class="score-name">SEO (Technical)</div><div style="font-size:11px;color:var(--muted)">Excellent</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="sticky-nav">
+  <div class="nav-inner">
+    <a href="#executive" class="nav-link">📋 Executive Summary</a>
+    <a href="#technical" class="nav-link">🔧 Technical SEO</a>
+    <a href="#onpage" class="nav-link">📄 On-Page SEO</a>
+    <a href="#offpage" class="nav-link">🔗 Off-Page / Links</a>
+    <a href="#keywords" class="nav-link">🔑 Keywords</a>
+    <a href="#newpages" class="nav-link">🆕 New Pages</a>
+    <a href="#local" class="nav-link">📍 Local SEO</a>
+    <a href="#blog" class="nav-link">📝 Blog Audit</a>
+    <a href="#cro" class="nav-link">🎯 CRO</a>
+  </div>
+</nav>
+
+<div class="container">
+
+<!-- EXECUTIVE SUMMARY -->
+<section class="section" id="executive">
+  <div class="section-header">
+    <div class="section-icon">📋</div>
+    <div>
+      <div class="section-title">Executive Summary</div>
+      <div class="section-desc">Overall audit findings and key opportunities for liniawellness.co.uk</div>
+    </div>
+  </div>
+  <div class="summary-box">
+    <h4>Audit Overview</h4>
+    <p>Linia Wellness is a well-established, doctor-led private wellness clinic (led by Dr Simon Zokaie BSc MBChB MRCP) with strong brand equity, press coverage, and genuine authority in the weight loss space. However, the site is currently significantly under-optimised for the GLP-1 weight loss opportunity — the fastest-growing healthcare category in the UK. With <strong>just 71 ranked keywords and ~148 estimated monthly organic visits</strong>, there is enormous untapped potential. The GLP-1 market (Wegovy, Mounjaro, Ozempic) represents <strong>hundreds of thousands of searches per month in the UK</strong>, yet Linia Wellness ranks for virtually none of them.</p>
+  </div>
+  <div class="metrics-row">
+    <div class="metric-card"><div class="metric-value">71</div><div class="metric-label">Total Ranked KWs</div><div class="metric-note">UK organic rankings</div></div>
+    <div class="metric-card"><div class="metric-value warn">~148</div><div class="metric-label">Est. Monthly Visits</div><div class="metric-note">🚨 Very low — huge gap</div></div>
+    <div class="metric-card"><div class="metric-value bad">0</div><div class="metric-label">Top-3 Rankings</div><div class="metric-note">No featured/top positions</div></div>
+    <div class="metric-card"><div class="metric-value">7</div><div class="metric-label">Positions 4–10</div><div class="metric-note">Near-page-1 opportunities</div></div>
+    <div class="metric-card"><div class="metric-value warn">75</div><div class="metric-label">Performance Score</div><div class="metric-note">LCP = 3.4s (poor)</div></div>
+    <div class="metric-card"><div class="metric-value good">100</div><div class="metric-label">SEO Score</div><div class="metric-note">Good technical foundations</div></div>
+  </div>
+  <h3 style="font-size:18px;font-weight:700;color:var(--linia-dark);margin-bottom:16px;">🎯 Top Priority Actions</h3>
+  <div class="priority-grid">
+    <div class="priority-card high"><span class="priority-tag high">HIGH</span><h4>Rewrite treatment page titles, H1s & meta descriptions</h4><p>Add "UK", drug names, and "London" to Wegovy/Mounjaro pages — fundamental on-page gap.</p></div>
+    <div class="priority-card high"><span class="priority-tag high">HIGH</span><h4>Create local landing pages for London</h4><p>Build /wegovy-treatment-london/ and /mounjaro-treatment-london/ targeting local commercial queries.</p></div>
+    <div class="priority-card high"><span class="priority-tag high">HIGH</span><h4>Optimise Google Business Profile</h4><p>Add GLP-1 services, keyword-rich description, weekly posts, Q&A, and booking link to GMB.</p></div>
+    <div class="priority-card high"><span class="priority-tag high">HIGH</span><h4>Fix LCP (3.4s → target &lt;2.5s)</h4><p>Compress hero images to WebP, add preload links, defer non-critical JavaScript.</p></div>
+    <div class="priority-card high"><span class="priority-tag high">HIGH</span><h4>Add Medical + FAQ Schema</h4><p>Implement MedicalOrganization, Physician, and FAQPage structured data across key pages.</p></div>
+    <div class="priority-card high"><span class="priority-tag high">HIGH</span><h4>Add pricing transparency to treatment pages</h4><p>"From £X/month" pricing significantly reduces friction and increases consultation bookings.</p></div>
+    <div class="priority-card med"><span class="priority-tag med">MEDIUM</span><h4>Publish 4-6 high-intent GLP-1 blog posts</h4><p>"Wegovy cost UK", "How to get Wegovy UK", "Mounjaro vs Ozempic" — massive low-competition traffic.</p></div>
+    <div class="priority-card med"><span class="priority-tag med">MEDIUM</span><h4>Digital PR / Link Building Campaign</h4><p>Target 5 quality referring domains per month. Priority: health press + medical directories.</p></div>
+    <div class="priority-card med"><span class="priority-tag med">MEDIUM</span><h4>Add E-E-A-T signals to all pages</h4><p>Author bios, GMC credentials, clinical references, and medical review dates on every page.</p></div>
+  </div>
+</section>
+
+<!-- TECHNICAL SEO -->
+<section class="section" id="technical">
+  <div class="section-header">
+    <div class="section-icon">🔧</div>
+    <div>
+      <div class="section-title">Technical SEO</div>
+      <div class="section-desc">Core Web Vitals, schema markup, crawlability, site architecture</div>
+    </div>
+  </div>
+  <h3 style="font-size:16px;font-weight:700;color:var(--linia-dark);margin-bottom:16px;">Core Web Vitals — Homepage</h3>
+  <div class="cwv-grid">
+    <div class="cwv-card"><div class="cwv-label">Perf. Score</div><div class="cwv-value warn">75/100</div><div class="cwv-target">Target: 90+</div><div class="cwv-bar"><div class="cwv-bar-fill warn" style="width:75%"></div></div></div>
+    <div class="cwv-card"><div class="cwv-label">LCP (Largest Contentful Paint)</div><div class="cwv-value bad">3.4s</div><div class="cwv-target">Target: &lt;2.5s 🚨 POOR</div><div class="cwv-bar"><div class="cwv-bar-fill bad" style="width:20%"></div></div></div>
+    <div class="cwv-card"><div class="cwv-label">FCP (First Contentful Paint)</div><div class="cwv-value good">1.0s</div><div class="cwv-target">Target: &lt;1.8s ✅ GOOD</div><div class="cwv-bar"><div class="cwv-bar-fill good" style="width:80%"></div></div></div>
+    <div class="cwv-card"><div class="cwv-label">TBT (Total Blocking Time)</div><div class="cwv-value good">0ms</div><div class="cwv-target">Target: &lt;200ms ✅ GOOD</div><div class="cwv-bar"><div class="cwv-bar-fill good" style="width:100%"></div></div></div>
+    <div class="cwv-card"><div class="cwv-label">CLS (Cumulative Layout Shift)</div><div class="cwv-value warn">0.112</div><div class="cwv-target">Target: &lt;0.1 ⚠️ NEEDS WORK</div><div class="cwv-bar"><div class="cwv-bar-fill warn" style="width:60%"></div></div></div>
+    <div class="cwv-card"><div class="cwv-label">Total Page Weight</div><div class="cwv-value bad">3,511 KiB</div><div class="cwv-target">Target: &lt;1,500 KiB 🚨</div><div class="cwv-bar"><div class="cwv-bar-fill bad" style="width:30%"></div></div></div>
+  </div>
+
+  <h3 style="font-size:16px;font-weight:700;color:var(--linia-dark);margin:24px 0 16px;">Critical Technical Issues</h3>
+  <table class="data-table">
+    <thead><tr><th>Issue</th><th>Priority</th><th>Impact</th><th>Recommendation</th></tr></thead>
+    <tbody>
+      <tr><td><strong>LCP = 3.4s (Google POOR)</strong></td><td><span class="badge badge-red">HIGH</span></td><td>Direct Core Web Vitals ranking factor</td><td>Add &lt;link rel="preload"&gt; for LCP element. Convert images to WebP/AVIF. Defer non-critical JS. Review WordPress caching plugin settings.</td></tr>
+      <tr><td><strong>Missing MedicalOrganization & Physician Schema</strong></td><td><span class="badge badge-red">HIGH</span></td><td>E-E-A-T signals; rich results eligibility</td><td>Add JSON-LD: MedicalOrganization + MedicalClinic + Physician (Dr Zokaie). Include GMC registration, address, specialties, credentials.</td></tr>
+      <tr><td><strong>No FAQPage Schema on Treatment Pages</strong></td><td><span class="badge badge-red">HIGH</span></td><td>SERP real estate; featured snippet eligibility</td><td>Implement FAQPage JSON-LD on Wegovy, Mounjaro, Saxenda pages. Include 10-15 Q&As per page.</td></tr>
+      <tr><td><strong>Missing LocalBusiness Schema (no NAP)</strong></td><td><span class="badge badge-red">HIGH</span></td><td>Critical for local pack rankings</td><td>Add LocalBusiness + MedicalClinic JSON-LD with London address, phone, lat/lng, opening hours, CQC registration.</td></tr>
+      <tr><td><strong>Page Weight = 3,511 KiB</strong></td><td><span class="badge badge-red">HIGH</span></td><td>Performance, UX, mobile bounce rate</td><td>Compress all images to WebP. Enable lazy loading. Audit WordPress plugins. Use CDN for static assets. Target &lt;1,500 KiB.</td></tr>
+      <tr><td><strong>CLS = 0.112 (Needs Improvement)</strong></td><td><span class="badge badge-amber">MEDIUM</span></td><td>CWV ranking factor; user experience</td><td>Add width/height attributes to all images. Preload key fonts. Avoid DOM insertions above existing content.</td></tr>
+      <tr><td><strong>Weak Internal Link Architecture</strong></td><td><span class="badge badge-amber">MEDIUM</span></td><td>PageRank flow; crawlability</td><td>Every blog post should have 2+ internal links to relevant treatment/service pages. Wegovy blog posts → Wegovy treatment page.</td></tr>
+      <tr><td><strong>Form/Thank-you Pages in Sitemap</strong></td><td><span class="badge badge-green">LOW</span></td><td>Crawl budget efficiency</td><td>Noindex: /thank-you/, /patient-medical-history/, /gynaecology-form/. Remove from XML sitemap.</td></tr>
+      <tr><td><strong>No Article Schema on Blog Posts</strong></td><td><span class="badge badge-amber">MEDIUM</span></td><td>E-E-A-T; freshness signals; authorship</td><td>Add Article/BlogPosting JSON-LD to every post: Dr Zokaie as author, datePublished, dateModified, featured image.</td></tr>
+      <tr><td><strong>CSS Minification (6 KiB savings available)</strong></td><td><span class="badge badge-green">LOW</span></td><td>Minor performance improvement</td><td>Enable CSS minification in WordPress (WP Rocket/Autoptimize). Easy win.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="summary-box">
+    <h4>💊 Schema Blueprint for a YMYL Medical Site</h4>
+    <p>As a CQC-registered medical clinic with a qualified physician (Dr Zokaie MRCP), Linia Wellness qualifies for rich, authoritative schema that most competitors don't implement. The full schema stack should include: <strong>MedicalOrganization → MedicalClinic → Physician → MedicalProcedure → FAQPage → Article (blogs) → Review/AggregateRating → LocalBusiness</strong>. This is a significant competitive advantage that is currently entirely untapped.</p>
+  </div>
+</section>
+
+<!-- ON-PAGE SEO -->
+<section class="section" id="onpage">
+  <div class="section-header">
+    <div class="section-icon">📄</div>
+    <div>
+      <div class="section-title">On-Page SEO</div>
+      <div class="section-desc">Title tags, H1s, meta descriptions, E-E-A-T, URL structure</div>
+    </div>
+  </div>
+  <div class="summary-box">
+    <h4>Key Finding: Missing "UK" + Location Signals Across All Key Pages</h4>
+    <p>The most critical on-page issue is that the Wegovy, Mounjaro, and weight loss service pages are missing "UK", "London", and the generic drug names (semaglutide, tirzepatide) in their H1 tags and title tags. For a YMYL medical site targeting a UK audience, this is a fundamental gap that prevents ranking for commercial GLP-1 terms.</p>
+  </div>
+
+  <table class="data-table">
+    <thead><tr><th>Page</th><th>Current Title</th><th>Recommended Title</th><th>H1 Issue</th><th>Priority</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><code>/treatments/wegovy-treatment/</code></td>
+        <td>Wegovy Treatment for Weight Loss | Semaglutide Injections</td>
+        <td><strong>Wegovy Treatment UK | Semaglutide Weight Loss | Linia Wellness London</strong></td>
+        <td>H1 "For Advanced Weight Loss" — missing "UK", "semaglutide", "London"</td>
+        <td><span class="badge badge-red">HIGH</span></td>
+      </tr>
+      <tr>
+        <td><code>/treatments/mounjaro-treatment/</code></td>
+        <td>Mounjaro Treatment | Weight Loss | Tirzepatide Injections</td>
+        <td><strong>Mounjaro Treatment UK | Tirzepatide Weight Loss | Linia Wellness London</strong></td>
+        <td>H1 missing "UK", "London", "tirzepatide"</td>
+        <td><span class="badge badge-red">HIGH</span></td>
+      </tr>
+      <tr>
+        <td><code>/services/private-weight-loss-clinic/</code></td>
+        <td>Weight Loss Management | Linia Wellness</td>
+        <td><strong>Private Weight Loss Clinic London | Doctor-Led GLP-1 | Linia Wellness</strong></td>
+        <td>H1 likely "Weight Loss Management" — missing primary keyword</td>
+        <td><span class="badge badge-red">HIGH</span></td>
+      </tr>
+      <tr>
+        <td><code>/ (Homepage)</code></td>
+        <td>Brand-only title (unconfirmed)</td>
+        <td><strong>Linia Wellness London | Private Weight Loss & GLP-1 Clinic | Dr-Led</strong></td>
+        <td>H1 must lead with "Doctor-Led Weight Loss Clinic London"</td>
+        <td><span class="badge badge-red">HIGH</span></td>
+      </tr>
+      <tr>
+        <td><code>/treatments/ozempic/</code></td>
+        <td>Ozempic | Linia Wellness</td>
+        <td><strong>Ozempic Weight Loss UK | Semaglutide | Private Prescription | Linia Wellness</strong></td>
+        <td>H1 likely just "Ozempic" — needs full keyword expansion</td>
+        <td><span class="badge badge-amber">MEDIUM</span></td>
+      </tr>
+      <tr>
+        <td><code>/treatments/saxenda/</code></td>
+        <td>Saxenda | Linia Wellness</td>
+        <td><strong>Saxenda Weight Loss Injections UK | Liraglutide | Linia Wellness London</strong></td>
+        <td>H1 needs drug name and "weight loss injections" context</td>
+        <td><span class="badge badge-amber">MEDIUM</span></td>
+      </tr>
+      <tr>
+        <td><code>/bmi-calculator/</code></td>
+        <td>BMI Calculator | Linia Wellness</td>
+        <td><strong>BMI Calculator UK | Am I Eligible for Wegovy or Mounjaro?</strong></td>
+        <td>Add eligibility angle to H1 — good conversion opportunity</td>
+        <td><span class="badge badge-amber">MEDIUM</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 style="font-size:16px;font-weight:700;color:var(--linia-dark);margin:24px 0 16px;">E-E-A-T Requirements (YMYL Health Site)</h3>
+  <table class="data-table">
+    <thead><tr><th>Element</th><th>Status</th><th>Required Action</th><th>Priority</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Author Bios on Blog Posts</strong></td><td><span class="badge badge-red">❌ Missing</span></td><td>Add Dr Zokaie author box (photo, BSc MBChB MRCP, specialisation) to every blog post — both top and bottom</td><td><span class="badge badge-red">HIGH</span></td></tr>
+      <tr><td><strong>GMC Registration / Credentials</strong></td><td><span class="badge badge-amber">⚠️ Partial</span></td><td>Show GMC number, MRCP qualification, and years experience prominently on all service/treatment pages</td><td><span class="badge badge-red">HIGH</span></td></tr>
+      <tr><td><strong>Clinical References & Citations</strong></td><td><span class="badge badge-red">❌ Missing</span></td><td>Add reference list to bottom of Wegovy/Mounjaro pages: MHRA approval, STEP clinical trial data, NICE guidelines</td><td><span class="badge badge-red">HIGH</span></td></tr>
+      <tr><td><strong>Medical Peer Review Statement</strong></td><td><span class="badge badge-red">❌ Missing</span></td><td>Add "Medically reviewed by Dr Simon Zokaie BSc MBChB MRCP on [date]" to all treatment pages</td><td><span class="badge badge-red">HIGH</span></td></tr>
+      <tr><td><strong>Reviews Schema / Trust Signals</strong></td><td><span class="badge badge-amber">⚠️ Partial</span></td><td>Implement Review/AggregateRating schema; embed actual review text on service pages</td><td><span class="badge badge-amber">MEDIUM</span></td></tr>
+      <tr><td><strong>Content Freshness Dates</strong></td><td><span class="badge badge-amber">⚠️ Missing</span></td><td>Show "Last reviewed: [date]" on all treatment pages — GLP-1 landscape changes fast</td><td><span class="badge badge-amber">MEDIUM</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- OFF-PAGE -->
+<section class="section" id="offpage">
+  <div class="section-header">
+    <div class="section-icon">🔗</div>
+    <div>
+      <div class="section-title">Off-Page SEO & Backlinks</div>
+      <div class="section-desc">Authority, referring domains, link building strategy</div>
+    </div>
+  </div>
+  <div class="summary-box">
+    <h4>Key Finding: Authority Gap vs. GLP-1 SERP Competitors</h4>
+    <p>DataForSEO competitor data shows that pages ranking for "wegovy" terms have an average of <strong>~471 referring domains</strong>, while "mounjaro injection" competitors average ~156 RDs. Linia Wellness's domain authority is estimated low-medium, creating a significant but closeable authority gap. The press coverage (Mail, Telegraph, Vogue, Harper's Bazaar, Good Housekeeping) is a strong asset — these links need to be audited to ensure they are do-follow and pointing to the right pages.</p>
+  </div>
+  <table class="data-table">
+    <thead><tr><th>Metric</th><th>Current Est.</th><th>Competitor Avg</th><th>12-Month Target</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td>Referring Domains (Wegovy SERP)</td><td>~Low (&lt;50 est.)</td><td>471 RDs</td><td>100+ quality RDs</td><td>Quality > quantity — target DR 40+ domains</td></tr>
+      <tr><td>Referring Domains (Mounjaro SERP)</td><td>~Low (&lt;50 est.)</td><td>156 RDs</td><td>50-80 quality RDs</td><td>More achievable than semaglutide terms</td></tr>
+      <tr><td>Press Coverage Links</td><td>✅ Exists (Mail, Telegraph, Vogue)</td><td>N/A</td><td>Reclaim as dofollow</td><td>Audit — many press links may be nofollow</td></tr>
+      <tr><td>Medical Directory Listings</td><td>⚠️ Unknown</td><td>Competitors: 5-15 directories</td><td>All major directories</td><td>Doctify, TopDoctors, WhatClinic, Private Healthcare UK</td></tr>
+      <tr><td>Local Citations (NAP)</td><td>⚠️ Unaudited</td><td>N/A</td><td>100% consistent NAP</td><td>Check Yell, Bing, Apple Maps, CQC directory</td></tr>
+    </tbody>
+  </table>
+
+  <h3 style="font-size:16px;font-weight:700;color:var(--linia-dark);margin:24px 0 16px;">Link Building Strategy</h3>
+  <table class="data-table">
+    <thead><tr><th>Tactic</th><th>Target Sites</th><th>Monthly Target</th><th>Expected DR</th><th>Priority</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Digital PR — Expert Quotes</strong></td><td>Guardian Health, Mail Online, BBC Health, Women's Health</td><td>1-2 links/month</td><td>DR 70-90</td><td><span class="badge badge-red">HIGH</span></td></tr>
+      <tr><td><strong>Medical Directory Listings</strong></td><td>Doctify, TopDoctors, WhatClinic, Private Healthcare UK</td><td>5-8 new listings</td><td>DR 40-70</td><td><span class="badge badge-red">HIGH</span></td></tr>
+      <tr><td><strong>Reclaim Press Links</strong></td><td>Mail, Telegraph, Vogue, Harper's, Good Housekeeping</td><td>Audit first</td><td>DR 80-95</td><td><span class="badge badge-red">HIGH</span></td></tr>
+      <tr><td><strong>CQC / NHS Directories</strong></td><td>Gov.uk health directories, NHS signposting</td><td>2-3 citations</td><td>DR 80+</td><td><span class="badge badge-red">HIGH</span></td></tr>
+      <tr><td><strong>Guest Posts</strong></td><td>Healthista, Net Doctor, Nutritionist Resource</td><td>1-2/month</td><td>DR 40-60</td><td><span class="badge badge-amber">MEDIUM</span></td></tr>
+      <tr><td><strong>HARO / Qwoted</strong></td><td>Health journalists seeking expert commentary</td><td>2-3 responses/week</td><td>Varies</td><td><span class="badge badge-amber">MEDIUM</span></td></tr>
+      <tr><td><strong>Local Citations</strong></td><td>Yell, Scoot, Thomson Local, Apple Maps, Bing Places</td><td>All major directories</td><td>DR 40-60</td><td><span class="badge badge-red">HIGH</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- KEYWORDS -->
+<section class="section" id="keywords">
+  <div class="section-header">
+    <div class="section-icon">🔑</div>
+    <div>
+      <div class="section-title">Keyword Mapping & Research</div>
+      <div class="section-desc">GLP-1 weight loss keyword universe — commercial, informational, and local targets</div>
+    </div>
+  </div>
+  <div class="summary-box">
+    <h4>GLP-1 Keyword Opportunity: Enormous Untapped Potential</h4>
+    <p>The combined monthly search volume for GLP-1 related terms in the UK runs to <strong>hundreds of thousands of searches per month</strong>. "Wegovy" alone is searched 135,000 times/month; "mounjaro injection" 49,500/month; "semaglutide" 60,500/month. Linia Wellness currently ranks for <strong>none</strong> of these terms. Even capturing 0.5% of this traffic would represent a 3-5x increase in organic visits.</p>
+  </div>
+
+  <h3 style="font-size:16px;font-weight:700;color:var(--linia-dark);margin-bottom:12px;">🔥 High-Priority Keywords (Bottom of Funnel — Treatment Pages)</h3>
+  <div style="margin-bottom:20px;">
+    <span class="kw-pill">wegovy uk <span class="kw-vol">135k/mo</span></span>
+    <span class="kw-pill">mounjaro injection <span class="kw-vol">49.5k/mo</span></span>
+    <span class="kw-pill">semaglutide uk <span class="kw-vol">60.5k/mo</span></span>
+    <span class="kw-pill">wegovy price <span class="kw-vol">18.1k/mo</span></span>
+    <span class="kw-pill">mounjaro doses <span class="kw-vol">12.1k/mo</span></span>
+    <span class="kw-pill">wegovy doses <span class="kw-vol">9.9k/mo</span></span>
+    <span class="kw-pill">wegovy injection <span class="kw-vol">3.6k/mo</span></span>
+    <span class="kw-pill">microdose mounjaro <span class="kw-vol">3.6k/mo</span></span>
+    <span class="kw-pill">saxenda injection <span class="kw-vol">2.4k/mo</span></span>
+    <span class="kw-pill">wegovy results <span class="kw-vol">1.3k/mo</span></span>
+    <span class="kw-pill">wegovy hair loss <span class="kw-vol">720/mo</span></span>
+    <span class="kw-pill">wegovy jab <span class="kw-vol">720/mo</span></span>
+  </div>
+
+  <table class="data-table">
+    <thead><tr><th>Keyword</th><th>Monthly Vol</th><th>KD</th><th>Intent</th><th>Target Page</th><th>Current Rank</th><th>Priority</th></tr></thead>
+    <tbody>
+      <tr><td>wegovy treatment uk</td><td>135,000</td><td><span class="badge badge-red">HIGH 51</span></td><td>BOF Commercial</td><td>/treatments/wegovy-treatment/</td><td>Not ranking</td><td><span class="badge badge-red">HIGH</span></td></tr>
+      <tr><td>mounjaro treatment uk</td><td>49,500</td><td><span class="badge badge-amber">MED 31</span></td><td>BOF Commercial</td><td>/treatments/mounjaro-treatment/</td><td>Not ranking</td><td><span class="badge badge-red">HIGH</span></td></tr>
+      <tr><td>semaglutide uk</td><td>60,500</td><td><span class="badge badge-red">HIGH 73</span></td><td>BOF Navigational</td><td>/treatments/wegovy-treatment/</td><td>Not ranking</td><td><span class="badge badge-red">HIGH</span></td></tr>
+      <tr><td>wegovy price</td><td>18,100</td><td><span class="badge badge-green">LOW 11</span></td><td>BOF Commercial</td><td>/treatments/wegovy-treatment/ + pricing section</td><td>Not ranking</td><td><span class="badge badge-red">HIGH</span></td></tr>
+      <tr><td>mounjaro doses</td><td>12,100</td><td><span class="badge badge-amber">MED 24</span></td><td>MOF Informational</td><td>/treatments/mounjaro-treatment/</td><td>Not ranking</td><td><span class="badge badge-amber">MEDIUM</span></td></tr>
+      <tr><td>wegovy doses</td><td>9,900</td><td><span class="badge badge-green">LOW 7</span></td><td>MOF Informational</td><td>/treatments/wegovy-treatment/</td><td>Not ranking</td><td><span class="badge badge-amber">MEDIUM</span></td></tr>
+      <tr><td>weight loss clinic london</td><td>480</td><td><span class="badge badge-red">HIGH 79</span></td><td>BOF Local</td><td>NEW /weight-loss-clinic-london/</td><td>Not ranking</td><td><span class="badge badge-red">HIGH</span></td></tr>
+      <tr><td>private weight loss clinic near me</td><td>390</td><td><span class="badge badge-red">HIGH 85</span></td><td>BOF Local</td><td>GMB + /weight-loss-clinic-london/</td><td>Not ranking</td><td><span class="badge badge-red">HIGH</span></td></tr>
+      <tr><td>how much weight lost calculator</td><td>6,600–8,100</td><td><span class="badge badge-green">LOW</span></td><td>TOF Informational</td><td>/bmi-calculator/</td><td>pos 47-62</td><td><span class="badge badge-amber">MEDIUM</span></td></tr>
+      <tr><td>wegovy results</td><td>1,300</td><td><span class="badge badge-green">LOW 3</span></td><td>TOF Informational</td><td>NEW blog post</td><td>Not ranking</td><td><span class="badge badge-red">HIGH</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- NEW PAGES -->
+<section class="section" id="newpages">
+  <div class="section-header">
+    <div class="section-icon">🆕</div>
+    <div>
+      <div class="section-title">New Pages to Create</div>
+      <div class="section-desc">Keyword gap analysis — bottom-of-funnel pages and informational content</div>
+    </div>
+  </div>
+  <h3 style="font-size:16px;font-weight:700;color:var(--linia-dark);margin-bottom:16px;">🛒 Bottom-of-Funnel (Commercial Intent) Pages</h3>
+  <table class="data-table">
+    <thead><tr><th>URL</th><th>Page Title</th><th>Type</th><th>Est. Volume</th><th>Priority</th></tr></thead>
+    <tbody>
+      <tr><td><code>/weight-loss-clinic-london/</code></td><td>Private Weight Loss Clinic London | Doctor-Led GLP-1 Programme</td><td>Local Hub</td><td>900+/mo</td><td><span class="badge badge-red">HIGH</span></td></tr>
+      <tr><td><code>/wegovy-treatment-london/</code></td><td>Wegovy Treatment London | Semaglutide Weight Loss Clinic</td><td>Local Landing</td><td>600+/mo</td><td><span class="badge badge-red">HIGH</span></td></tr>
+      <tr><td><code>/mounjaro-treatment-london/</code></td><td>Mounjaro Treatment London | Tirzepatide Clinic in London</td><td>Local Landing</td><td>400+/mo</td><td><span class="badge badge-red">HIGH</span></td></tr>
+      <tr><td><code>/glp1-weight-loss-uk/</code></td><td>GLP-1 Weight Loss UK | Semaglutide & Tirzepatide Explained</td><td>Category Hub</td><td>2,000+/mo</td><td><span class="badge badge-red">HIGH</span></td></tr>
+      <tr><td><code>/weight-loss-injections-uk/</code></td><td>Weight Loss Injections UK | Wegovy, Mounjaro & Saxenda Guide</td><td>Category Page</td><td>5,000+/mo</td><td><span class="badge badge-red">HIGH</span></td></tr>
+      <tr><td><code>/mounjaro-vs-wegovy/</code></td><td>Mounjaro vs Wegovy UK — Which Is Better for Weight Loss?</td><td>Comparison</td><td>1,500+/mo</td><td><span class="badge badge-red">HIGH</span></td></tr>
+    </tbody>
+  </table>
+  <h3 style="font-size:16px;font-weight:700;color:var(--linia-dark);margin:24px 0 16px;">📚 Top-of-Funnel (Informational Blog Posts)</h3>
+  <table class="data-table">
+    <thead><tr><th>URL</th><th>Blog Title</th><th>Est. Volume</th><th>Key Angle</th><th>Priority</th></tr></thead>
+    <tbody>
+      <tr><td><code>/blog/wegovy-cost-uk/</code></td><td>Wegovy Cost UK 2026 — Full Pricing Guide</td><td>1,800+/mo</td><td>Price transparency; NHS vs private cost comparison</td><td><span class="badge badge-red">HIGH</span></td></tr>
+      <tr><td><code>/blog/how-to-get-wegovy-uk/</code></td><td>How to Get Wegovy in the UK — NHS vs Private</td><td>1,000+/mo</td><td>Eligibility criteria (BMI 30+), NHS vs private, process</td><td><span class="badge badge-red">HIGH</span></td></tr>
+      <tr><td><code>/blog/wegovy-results-uk/</code></td><td>Wegovy Results UK — Before & After Weight Loss Data</td><td>1,300+/mo</td><td>STEP trial data + patient outcomes + timeline</td><td><span class="badge badge-red">HIGH</span></td></tr>
+      <tr><td><code>/blog/mounjaro-vs-ozempic-uk/</code></td><td>Mounjaro vs Ozempic UK — A Doctor's Comparison</td><td>1,000+/mo</td><td>Doctor-written; dual vs single GIP/GLP-1; comparison table</td><td><span class="badge badge-red">HIGH</span></td></tr>
+      <tr><td><code>/blog/mounjaro-cost-uk/</code></td><td>Mounjaro Cost UK 2026 — How Much Does It Cost?</td><td>800+/mo</td><td>Pricing tiers, what's included, payment options</td><td><span class="badge badge-red">HIGH</span></td></tr>
+      <tr><td><code>/blog/wegovy-side-effects-uk/</code></td><td>Wegovy Side Effects UK — Complete Guide</td><td>2,000+/mo</td><td>Nausea, hair loss, face, gastrointestinal — management tips</td><td><span class="badge badge-amber">MEDIUM</span></td></tr>
+      <tr><td><code>/blog/glp1-medications-guide/</code></td><td>GLP-1 Medications UK — Complete Guide</td><td>3,000+/mo</td><td>Educational hub linking to all treatment pages</td><td><span class="badge badge-amber">MEDIUM</span></td></tr>
+      <tr><td><code>/weight-loss-for-women-over-40/</code></td><td>Weight Loss for Women Over 40 | Menopause & GLP-1</td><td>3,000+/mo</td><td>Bridge: weight loss + menopause service cross-sell</td><td><span class="badge badge-amber">MEDIUM</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- LOCAL SEO -->
+<section class="section" id="local">
+  <div class="section-header">
+    <div class="section-icon">📍</div>
+    <div>
+      <div class="section-title">Local SEO Strategy</div>
+      <div class="section-desc">Google Business Profile, map pack rankings, local landing pages</div>
+    </div>
+  </div>
+  <div class="summary-box">
+    <h4>Local Map Pack = Highest-Converting Traffic for Clinics</h4>
+    <p>For a London-based clinic, appearing in the Google Maps 3-pack for queries like "weight loss clinic London" and "Wegovy clinic near me" can drive <strong>30-50% of total clinic bookings</strong>. This requires a holistic approach: GMB optimisation, local landing pages with geo-signals, NAP consistency, and local link building from London health directories.</p>
+  </div>
+
+  <h3 style="font-size:16px;font-weight:700;color:var(--linia-dark);margin-bottom:16px;">Google Business Profile Optimisation Checklist</h3>
+  <div class="gmb-checklist">
+    <div class="gmb-item"><div class="gmb-status">🔴</div><div class="gmb-title">GLP-1 Services Listed</div><div class="gmb-action">Add: "Wegovy Treatment", "Mounjaro Treatment", "Medical Weight Loss". <span class="badge badge-red">HIGH</span></div></div>
+    <div class="gmb-item"><div class="gmb-status">🔴</div><div class="gmb-title">Business Description</div><div class="gmb-action">Write 750-char keyword-rich description including Wegovy, Mounjaro, semaglutide, London, CQC. <span class="badge badge-red">HIGH</span></div></div>
+    <div class="gmb-item"><div class="gmb-status">🔴</div><div class="gmb-title">Primary Category</div><div class="gmb-action">Verify/set to "Weight Loss Service" or "Medical Clinic". <span class="badge badge-red">HIGH</span></div></div>
+    <div class="gmb-item"><div class="gmb-status">🔴</div><div class="gmb-title">Online Booking CTA</div><div class="gmb-action">Add clinicsoftware.com booking URL as primary appointment link. <span class="badge badge-red">HIGH</span></div></div>
+    <div class="gmb-item"><div class="gmb-status">🔴</div><div class="gmb-title">Reviews (50+ target)</div><div class="gmb-action">Actively request post-consultation reviews. Respond to all within 48hrs. Target 4.8+. <span class="badge badge-red">HIGH</span></div></div>
+    <div class="gmb-item"><div class="gmb-status">🔴</div><div class="gmb-title">NAP Consistency</div><div class="gmb-action">Audit Name/Address/Phone across all directories. Must be identical everywhere. <span class="badge badge-red">HIGH</span></div></div>
+    <div class="gmb-item"><div class="gmb-status">🟡</div><div class="gmb-title">Photos (20+)</div><div class="gmb-action">Upload clinic interior, team photos, treatment rooms, before/afters (if GDPR-compliant). <span class="badge badge-amber">MEDIUM</span></div></div>
+    <div class="gmb-item"><div class="gmb-status">🟡</div><div class="gmb-title">Weekly GBP Posts</div><div class="gmb-action">Post weekly — treatment updates, blog teasers, patient tips. Use GLP-1 keywords. <span class="badge badge-amber">MEDIUM</span></div></div>
+    <div class="gmb-item"><div class="gmb-status">🟡</div><div class="gmb-title">Q&A Pre-Population</div><div class="gmb-action">Add 10+ Q&As: "Do you offer Wegovy?", "How much is Mounjaro?", "Are you CQC registered?" <span class="badge badge-amber">MEDIUM</span></div></div>
+    <div class="gmb-item"><div class="gmb-status">🟡</div><div class="gmb-title">Opening Hours</div><div class="gmb-action">Set accurate hours + Saturday hours + bank holiday special hours. <span class="badge badge-amber">MEDIUM</span></div></div>
+  </div>
+</section>
+
+<!-- BLOG AUDIT -->
+<section class="section" id="blog">
+  <div class="section-header">
+    <div class="section-icon">📝</div>
+    <div>
+      <div class="section-title">Blog Content Audit</div>
+      <div class="section-desc">Semantic SEO, NLP entity optimisation, query fan-outs, E-E-A-T</div>
+    </div>
+  </div>
+  <div class="summary-box">
+    <h4>Semantic SEO Principle: Entity-First Content for YMYL Medical Sites</h4>
+    <p>Google's NLP (Natural Language Processing) evaluates pages based on <strong>entities</strong> (people, places, concepts, drugs, medical terms) and their relationships. For weight loss content, every page should densely cover the relevant entity cluster: <em>GLP-1, semaglutide, tirzepatide, MHRA, BMI, insulin resistance, caloric deficit, satiety hormones (GLP-1, GIP, leptin, ghrelin), NICE guidelines</em>. Current blogs appear to lack this entity density, limiting topical authority.</p>
+  </div>
+
+  <div class="blog-card high-priority">
+    <div class="blog-url">/alcohol-and-weight-loss/ <span class="badge badge-red">HIGH PRIORITY — UNIQUE OPPORTUNITY</span></div>
+    <h4 style="font-size:15px;font-weight:700;margin-bottom:8px;">Alcohol & Weight Loss — Massive GLP-1 Interaction Angle Missed</h4>
+    <div class="blog-grid">
+      <div class="blog-col">
+        <h5>Current Issues</h5>
+        <ul>
+          <li>Title and URL weak for SEO value</li>
+          <li>Missing critical entity: alcohol interaction with GLP-1 medications — very low competition</li>
+          <li>No internal links to GLP-1 treatment pages</li>
+          <li>No FAQ section or schema</li>
+          <li>No clinical references</li>
+        </ul>
+      </div>
+      <div class="blog-col">
+        <h5>Query Fan-Out Opportunities</h5>
+        <ul>
+          <li>can you drink alcohol on wegovy</li>
+          <li>alcohol and mounjaro interactions</li>
+          <li>does alcohol stop weight loss</li>
+          <li>can you drink on semaglutide</li>
+          <li>alcohol while on GLP-1</li>
+        </ul>
+      </div>
+    </div>
+    <div class="entity-cluster">
+      <div style="font-size:11px;font-weight:600;color:var(--muted);margin-right:6px;align-self:center;">Missing entities:</div>
+      <span class="entity-pill">ethanol metabolism</span>
+      <span class="entity-pill">liver glycogen</span>
+      <span class="entity-pill">cortisol</span>
+      <span class="entity-pill">empty calories</span>
+      <span class="entity-pill">GLP-1 and alcohol interaction</span>
+      <span class="entity-pill">acetaldehyde</span>
+      <span class="entity-pill">blood sugar spikes</span>
+    </div>
+    <div class="annotation">Add H2: "Is It Safe to Drink Alcohol on GLP-1 Medications Like Wegovy or Mounjaro?" — this specific query has very low competition and high commercial intent from patients on treatment. Strong CTA opportunity to book GLP-1 consultation.</div>
+  </div>
+
+  <div class="blog-card">
+    <div class="blog-url">/common-weight-loss-myths/ <span class="badge badge-amber">MEDIUM PRIORITY</span></div>
+    <h4 style="font-size:15px;font-weight:700;margin-bottom:8px;">Weight Loss Myths — Good Topic, Weak Execution</h4>
+    <div class="blog-grid">
+      <div class="blog-col">
+        <h5>Current Issues</h5>
+        <ul>
+          <li>Generic title, no year or "UK" angle</li>
+          <li>No clinical references (NICE, MHRA)</li>
+          <li>No FAQ section or FAQ schema</li>
+          <li>No author attribution / E-E-A-T</li>
+          <li>Missing commercially-linked CTA</li>
+        </ul>
+      </div>
+      <div class="blog-col">
+        <h5>Recommended Improvements</h5>
+        <ul>
+          <li>Rename: "10 Weight Loss Myths Debunked by a UK Doctor (2026)"</li>
+          <li>Add FAQ schema for rich results</li>
+          <li>Add NICE guideline citations + MHRA data</li>
+          <li>Add CTA box mid-article linking to GLP-1 pages</li>
+          <li>Add Dr Zokaie medical review date</li>
+        </ul>
+      </div>
+    </div>
+    <div class="entity-cluster">
+      <div style="font-size:11px;font-weight:600;color:var(--muted);margin-right:6px;align-self:center;">Missing entities:</div>
+      <span class="entity-pill">calorie deficit</span>
+      <span class="entity-pill">metabolic adaptation</span>
+      <span class="entity-pill">GLP-1 receptors</span>
+      <span class="entity-pill">insulin resistance</span>
+      <span class="entity-pill">NICE obesity guidelines</span>
+      <span class="entity-pill">energy balance</span>
+      <span class="entity-pill">BMI classification</span>
+    </div>
+  </div>
+
+  <div class="blog-card">
+    <div class="blog-url">/what-is-a-glucose-spike-understanding-blood-sugar-rises/ <span class="badge badge-amber">MEDIUM PRIORITY</span></div>
+    <h4 style="font-size:15px;font-weight:700;margin-bottom:8px;">Glucose Spikes — Perfect Bridge to GLP-1 Services (Underutilised)</h4>
+    <div class="blog-grid">
+      <div class="blog-col">
+        <h5>Current Issues</h5>
+        <ul>
+          <li>Verbose title — condense for SEO</li>
+          <li>Missing commercial bridge: GLP-1 directly regulates glucose</li>
+          <li>No FAQ schema</li>
+          <li>No internal links to treatment pages</li>
+          <li>Missing entity: type 2 diabetes prevention angle</li>
+        </ul>
+      </div>
+      <div class="blog-col">
+        <h5>Recommended Improvements</h5>
+        <ul>
+          <li>New title: "What Is a Glucose Spike? Causes & Prevention Guide"</li>
+          <li>Add H2: "How Wegovy & Mounjaro Help Control Blood Sugar"</li>
+          <li>Add FAQ schema (8+ questions)</li>
+          <li>Strong CTA: "Book a metabolic health consultation →"</li>
+          <li>Link to GLP-1 treatment pages</li>
+        </ul>
+      </div>
+    </div>
+    <div class="entity-cluster">
+      <span class="entity-pill">blood glucose</span>
+      <span class="entity-pill">insulin secretion</span>
+      <span class="entity-pill">GLP-1 receptor agonists</span>
+      <span class="entity-pill">HbA1c</span>
+      <span class="entity-pill">glycaemic index</span>
+      <span class="entity-pill">postprandial glucose</span>
+      <span class="entity-pill">type 2 diabetes</span>
+    </div>
+  </div>
+
+  <div class="blog-card">
+    <div class="blog-url">/foods-to-help-your-metabolism/ <span class="badge badge-amber">MEDIUM PRIORITY</span></div>
+    <h4 style="font-size:15px;font-weight:700;margin-bottom:8px;">Metabolism Foods — Needs Author, Entities & CTA</h4>
+    <div class="blog-grid">
+      <div class="blog-col">
+        <h5>Current Issues</h5>
+        <ul>
+          <li>Weak title — no numbers, no hook, no year</li>
+          <li>No author bio with credentials</li>
+          <li>No FAQ section or Article schema</li>
+          <li>Not linked to treatment pages</li>
+        </ul>
+      </div>
+      <div class="blog-col">
+        <h5>Recommended Improvements</h5>
+        <ul>
+          <li>Rename: "10 Foods That Boost Metabolism — UK Doctor's Guide (2026)"</li>
+          <li>Add Dr Zokaie author box (top + bottom)</li>
+          <li>Add internal links to weight loss service page</li>
+          <li>Add FAQ schema + 8 Q&As</li>
+        </ul>
+      </div>
+    </div>
+    <div class="entity-cluster">
+      <span class="entity-pill">basal metabolic rate (BMR)</span>
+      <span class="entity-pill">thermic effect of food (TEF)</span>
+      <span class="entity-pill">thermogenic foods</span>
+      <span class="entity-pill">thyroid function</span>
+      <span class="entity-pill">insulin sensitivity</span>
+      <span class="entity-pill">leptin</span>
+      <span class="entity-pill">adipose tissue</span>
+    </div>
+  </div>
+</section>
+
+<!-- CRO -->
+<section class="section" id="cro">
+  <div class="section-header">
+    <div class="section-icon">🎯</div>
+    <div>
+      <div class="section-title">CRO — Conversion Rate Optimisation</div>
+      <div class="section-desc">Visual recommendations for homepage, treatment pages, and blog posts</div>
+    </div>
+  </div>
+
+  <div class="wireframe-section">
+    <h4>🏠 Homepage — Recommended Hero Section Redesign</h4>
+    <div class="wireframe">
+      <div class="wf-hero">
+        <h3>Lose Weight With a Doctor You Can Trust</h3>
+        <p style="font-size:14px;margin-bottom:4px;">Wegovy & Mounjaro GLP-1 Treatments in London — Led by Dr Simon Zokaie BSc MBChB MRCP</p>
+        <p style="font-size:11px;opacity:.7;">CQC Registered Private Clinic · Personalised Treatment Plans · 500+ Patients Treated</p>
+        <span class="wf-cta">📅 Book Your Free Weight Loss Consultation →</span>
+        <div class="wf-trust">
+          <span class="wf-trust-item">⭐ 4.9/5 Google Reviews</span>
+          <span class="wf-trust-item">🏥 CQC Registered</span>
+          <span class="wf-trust-item">👨‍⚕️ GMC Registered Doctor</span>
+          <span class="wf-trust-item">📰 As Seen In: Vogue, Telegraph, Mail</span>
+        </div>
+      </div>
+      <div class="wf-section">
+        <div class="wf-section-title">✅ Patient Reviews (3 visible — star rating + quote)</div>
+        <div class="wf-review">"I lost 18kg in 5 months with Dr Zokaie's Wegovy programme. Life-changing." — Sarah T. ★★★★★</div>
+        <div class="wf-review">"Professional, kind, and genuinely life-changing. Highly recommend the Mounjaro programme." — Mark H. ★★★★★</div>
+      </div>
+    </div>
+    <div class="annotation">Current issue: Vague hero message, unclear primary CTA, "Linia Skin Clinic" branding visible (confuses weight-loss visitors). Fix: Lead with the weight loss outcome + doctor credibility + social proof above fold. CTA button should be prominent, action-oriented, and above the scroll line on mobile.</div>
+  </div>
+
+  <div class="wireframe-section">
+    <h4>💊 Treatment Page — Wegovy/Mounjaro (Recommended Layout)</h4>
+    <div class="wireframe">
+      <div class="wf-hero" style="background:linear-gradient(135deg,#1A3C34,#2D6A4F);">
+        <h3>Wegovy Treatment UK — Doctor-Prescribed Semaglutide</h3>
+        <p style="font-size:12px;opacity:.8;">Lose up to 20% body weight · Weekly injection · Led by Dr Zokaie MRCP · From £XXX/month</p>
+        <span class="wf-cta">Check My Eligibility in 2 Minutes →</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:10px;">
+        <div class="wf-price-card"><div class="wf-price">£XXX</div><div class="wf-price-label">Starter Package<br>Month 1-2</div></div>
+        <div class="wf-price-card featured"><div class="wf-price">£XXX</div><div class="wf-price-label">Standard Programme<br>Most Popular</div></div>
+        <div class="wf-price-card"><div class="wf-price">£XXX</div><div class="wf-price-label">Maintenance<br>Month 6+</div></div>
+      </div>
+      <div class="wf-section">
+        <div class="wf-section-title">📊 Results Timeline (Key CRO Element)</div>
+        <div style="font-size:12px;color:#555;font-family:system-ui;">Month 1: First dose · Appetite reduction begins → Month 3: Average 5-8% weight loss → Month 6: 12-15% average → Month 12: 15-20% average weight loss</div>
+      </div>
+      <div class="wf-sticky">
+        <span>Wegovy Treatment — From £XXX/month · Dr Zokaie MRCP</span>
+        <span class="wf-sticky-btn">📅 Book Consultation</span>
+      </div>
+    </div>
+    <div class="annotation">Current issues: No pricing visible (requires PDF download — high friction), no eligibility checker, no sticky CTA, no results timeline. These 4 elements alone are estimated to increase consultation bookings by 20-35% for medical service pages.</div>
+  </div>
+
+  <div class="wireframe-section">
+    <h4>📝 Blog Post Template — Recommended Layout for CRO</h4>
+    <div class="wireframe">
+      <div class="wf-section">
+        <div class="wf-section-title">👨‍⚕️ Author Box (TOP OF ARTICLE)</div>
+        <div style="font-size:12px;font-family:system-ui;color:#333;">📷 <strong>Written by Dr Simon Zokaie BSc MBChB MRCP</strong> | Medical Director, Linia Wellness | GMC Registered | Medically Reviewed: April 2026</div>
+      </div>
+      <div style="background:#fff8e1;border:1px dashed #ffc107;border-radius:8px;padding:12px;margin-bottom:10px;font-family:system-ui;font-size:12px;">
+        ⚡ <strong>INLINE CTA (after paragraph 3):</strong> "Are you struggling to lose weight? Our doctor-led GLP-1 programme could help. <a href="#" style="color:var(--linia-mid);font-weight:700;">Check your eligibility in 2 minutes →</a>"
+      </div>
+      <div class="wf-section">
+        <div class="wf-section-title">❓ FAQ Section (8+ questions — FAQ schema markup)</div>
+        <div style="font-size:12px;color:#555;font-family:system-ui;">Q: Can I drink alcohol while on Wegovy? A: [concise answer for featured snippet]<br>Q: Does alcohol affect GLP-1 medications? A: [concise answer]</div>
+      </div>
+      <div class="wf-section" style="background:var(--linia-pale);border-color:var(--linia-mint);">
+        <div class="wf-section-title" style="color:var(--linia-mid);">🌿 END OF ARTICLE CTA (Conversion goal)</div>
+        <div style="font-size:12px;font-family:system-ui;">Ready to start your weight loss journey with Wegovy or Mounjaro? → <strong>Book a Free Consultation with Dr Zokaie</strong></div>
+      </div>
+    </div>
+    <div class="annotation">Key CRO principle for blogs: every article should have a clear conversion path. Author box = trust (E-E-A-T). Inline CTA = captures mid-page engaged readers. FAQ = featured snippet + reduces support queries. End CTA = converts readers to consultation bookings.</div>
+  </div>
+
+  <h3 style="font-size:16px;font-weight:700;color:var(--linia-dark);margin:24px 0 16px;">Full CRO Recommendations Summary</h3>
+  <table class="data-table">
+    <thead><tr><th>Page</th><th>Issue</th><th>Recommendation</th><th>Impact</th><th>Priority</th></tr></thead>
+    <tbody>
+      <tr><td>Homepage Hero</td><td>Vague message; unclear CTA; skin clinic branding</td><td>Lead with weight loss outcome + doctor credibility + social proof + green CTA button above fold</td><td>+15-25% consultation bookings</td><td><span class="badge badge-red">HIGH</span></td></tr>
+      <tr><td>Treatment Pages — Pricing</td><td>No pricing visible; requires PDF download</td><td>Show "from £X/month" pricing table inline. What's included checklist.</td><td>+15-20% consultation requests</td><td><span class="badge badge-red">HIGH</span></td></tr>
+      <tr><td>Treatment Pages — Eligibility</td><td>No quick eligibility check tool</td><td>3-question inline quiz → instant CTA if eligible</td><td>+qualified leads; -wasted consultations</td><td><span class="badge badge-red">HIGH</span></td></tr>
+      <tr><td>Treatment Pages — Sticky CTA</td><td>CTA only at top/bottom of long pages</td><td>Sticky "Book Consultation" bar: mobile fixed bottom, desktop sticky right sidebar</td><td>+10-15% CTA engagement</td><td><span class="badge badge-amber">MEDIUM</span></td></tr>
+      <tr><td>Treatment Pages — Results</td><td>No outcomes/results section</td><td>Add results timeline: Month 1 → 3 → 6 → 12. Anonymised case studies (GDPR-compliant).</td><td>+15% conversion from proof-seeking visitors</td><td><span class="badge badge-red">HIGH</span></td></tr>
+      <tr><td>Blog Posts — Author Box</td><td>No author attribution</td><td>Dr Zokaie author box (photo + credentials + review date) at top AND bottom of every post</td><td>Reduces bounce; improves dwell; E-E-A-T</td><td><span class="badge badge-red">HIGH</span></td></tr>
+      <tr><td>Blog Posts — Inline CTAs</td><td>No mid-content CTAs</td><td>Add CTA box after paragraph 3 and at end. "Check eligibility" link in relevant context.</td><td>+5-10% blog-to-treatment click-through</td><td><span class="badge badge-amber">MEDIUM</span></td></tr>
+      <tr><td>Booking Flow</td><td>External booking link (off-site friction)</td><td>Embed booking calendar on-page. If external required, open in modal not new tab.</td><td>+20-30% booking completion rate</td><td><span class="badge badge-red">HIGH</span></td></tr>
+      <tr><td>Price Guide Page</td><td>PDF-gated pricing</td><td>Display pricing directly on page. PDF as secondary option only.</td><td>+15% conversion from price-page visitors</td><td><span class="badge badge-red">HIGH</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+</div><!-- /container -->
+
+<div class="report-footer">
+  <p><strong>YukariSEO</strong> — Comprehensive SEO Audit for Linia Wellness</p>
+  <p style="margin-top:8px;">liniawellness.co.uk · April 2026 · Prepared by YukariSEO · Data: DataForSEO Labs + Google Lighthouse</p>
+  <p style="margin-top:8px;opacity:.5;">This report is confidential and prepared exclusively for Linia Wellness. All keyword data sourced from DataForSEO Labs UK (April 2026).</p>
+</div>
+
+</body>
+</html>
