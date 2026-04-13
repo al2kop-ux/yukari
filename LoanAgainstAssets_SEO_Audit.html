@@ -1,0 +1,2097 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO Audit — LoanAgainstAssets.co.uk | YukariSEO</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8C97A;
+    --gold-pale: #F9F2E3;
+    --navy: #0D1B2A;
+    --navy-mid: #1A3050;
+    --navy-light: #2A4A6E;
+    --slate: #4A5568;
+    --slate-light: #718096;
+    --cream: #FDFAF4;
+    --white: #FFFFFF;
+    --red: #C0392B;
+    --orange: #E67E22;
+    --green: #27AE60;
+    --blue: #2980B9;
+    --border: rgba(201,168,76,0.2);
+    --shadow: 0 4px 24px rgba(13,27,42,0.12);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--navy);
+    line-height: 1.7;
+    font-size: 15px;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--navy);
+    padding: 60px 0 50px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(201,168,76,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .hero-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .hero-logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .logo-mark {
+    width: 52px; height: 52px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--navy);
+  }
+  .logo-text { display: flex; flex-direction: column; gap: 2px; }
+  .logo-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: var(--white);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+  .logo-sub {
+    font-size: 11px;
+    color: var(--gold-light);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .hero-info { text-align: right; }
+  .hero-client {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    color: var(--white);
+    font-weight: 400;
+    font-style: italic;
+  }
+  .hero-date {
+    font-size: 13px;
+    color: var(--slate-light);
+    margin-top: 4px;
+    letter-spacing: 0.05em;
+  }
+  .hero-title-block {
+    width: 100%;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    margin-top: 10px;
+  }
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    color: var(--white);
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  .hero-title span { color: var(--gold); }
+  .hero-subtitle {
+    color: rgba(255,255,255,0.55);
+    font-size: 15px;
+    margin-top: 8px;
+    max-width: 600px;
+  }
+
+  /* ── SCORE STRIP ── */
+  .score-strip {
+    background: var(--navy-mid);
+    padding: 28px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .score-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
+  }
+  .score-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201,168,76,0.15);
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+  }
+  .score-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .score-num.red { color: #E74C3C; }
+  .score-num.orange { color: #F39C12; }
+  .score-num.green { color: #2ECC71; }
+  .score-num.gold { color: var(--gold); }
+  .score-label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* ── MAIN LAYOUT ── */
+  .main { max-width: 1100px; margin: 0 auto; padding: 50px 40px 80px; }
+
+  /* ── EXEC SUMMARY ── */
+  .exec-summary {
+    background: var(--navy);
+    border-radius: 14px;
+    padding: 36px 40px;
+    margin-bottom: 50px;
+    border: 1px solid rgba(201,168,76,0.2);
+    position: relative;
+    overflow: hidden;
+  }
+  .exec-summary::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
+    background: linear-gradient(180deg, var(--gold), transparent);
+    border-radius: 4px 0 0 4px;
+  }
+  .exec-summary h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+  .exec-summary p {
+    color: rgba(255,255,255,0.75);
+    font-size: 14.5px;
+    line-height: 1.8;
+  }
+  .exec-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 24px;
+  }
+  .exec-item {
+    background: rgba(255,255,255,0.04);
+    border-radius: 8px;
+    padding: 16px;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .exec-item h4 {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--gold-light);
+    margin-bottom: 6px;
+  }
+  .exec-item p { color: rgba(255,255,255,0.65); font-size: 13.5px; line-height: 1.6; }
+
+  /* ── SECTION HEADERS ── */
+  .section { margin-bottom: 52px; }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-icon {
+    width: 44px; height: 44px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    color: var(--navy);
+    font-weight: 700;
+  }
+  .section-num {
+    font-size: 12px;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  /* ── CARDS ── */
+  .card {
+    background: var(--white);
+    border-radius: 12px;
+    border: 1px solid rgba(13,27,42,0.08);
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+  .card-head {
+    padding: 16px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(13,27,42,0.06);
+    background: rgba(13,27,42,0.02);
+  }
+  .card-head h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--navy);
+  }
+  .card-body { padding: 22px; }
+
+  /* ── PRIORITY BADGES ── */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .badge-critical { background: #FDE8E8; color: #C0392B; }
+  .badge-high { background: #FEF0E0; color: #D35400; }
+  .badge-medium { background: #E8F4FD; color: #2471A3; }
+  .badge-low { background: #EAFAF1; color: #1E8449; }
+  .badge-info { background: #F2F3F4; color: #566573; }
+
+  /* ── ISSUE LIST ── */
+  .issue-list { display: flex; flex-direction: column; gap: 12px; }
+  .issue {
+    background: var(--white);
+    border: 1px solid rgba(13,27,42,0.08);
+    border-radius: 10px;
+    padding: 16px 18px;
+    border-left: 4px solid transparent;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .issue.critical { border-left-color: #C0392B; }
+  .issue.high { border-left-color: #E67E22; }
+  .issue.medium { border-left-color: #2980B9; }
+  .issue.low { border-left-color: #27AE60; }
+  .issue-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; flex-wrap: wrap; gap: 8px; }
+  .issue-title { font-weight: 600; font-size: 14.5px; color: var(--navy); }
+  .issue-desc { font-size: 13.5px; color: var(--slate); line-height: 1.6; }
+  .issue-fix {
+    margin-top: 10px;
+    background: var(--gold-pale);
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 13px;
+    color: var(--navy-mid);
+    border-left: 3px solid var(--gold);
+  }
+  .issue-fix strong { color: var(--navy); font-weight: 600; }
+
+  /* ── DATA TABLES ── */
+  .data-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  .data-table th {
+    background: var(--navy);
+    color: var(--gold-light);
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 500;
+    font-size: 11.5px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .data-table th:first-child { border-radius: 8px 0 0 0; }
+  .data-table th:last-child { border-radius: 0 8px 0 0; }
+  .data-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid rgba(13,27,42,0.05);
+    color: var(--slate);
+    vertical-align: top;
+  }
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tr:hover td { background: rgba(201,168,76,0.04); }
+  .data-table .kw { font-family: 'DM Mono', monospace; font-size: 12.5px; color: var(--navy); }
+  .data-table .vol { font-weight: 600; color: var(--navy); }
+  .data-table .kd-low { color: #27AE60; font-weight: 600; }
+  .data-table .kd-med { color: #E67E22; font-weight: 600; }
+  .data-table .kd-high { color: #C0392B; font-weight: 600; }
+  .data-table .intent { font-size: 11px; }
+  .data-table .intent-com { color: #8E44AD; font-weight: 600; }
+  .data-table .intent-inf { color: #2471A3; font-weight: 600; }
+  .data-table .intent-nav { color: #148F77; font-weight: 600; }
+
+  /* ── GRID LAYOUTS ── */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+
+  /* ── METRIC PILLS ── */
+  .metric-row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 16px; }
+  .metric {
+    background: var(--navy);
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    min-width: 100px;
+  }
+  .metric-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: var(--gold);
+    font-weight: 700;
+  }
+  .metric-key { font-size: 11px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 2px; }
+
+  /* ── CRO WIREFRAMES ── */
+  .wireframe-container {
+    background: #F0F2F5;
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid rgba(0,0,0,0.08);
+    margin-bottom: 20px;
+  }
+  .wireframe-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--slate-light);
+    margin-bottom: 14px;
+    font-weight: 600;
+  }
+  .wf-browser {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    font-size: 12px;
+  }
+  .wf-topbar {
+    background: #E8EAED;
+    padding: 8px 12px;
+    display: flex; gap: 6px; align-items: center;
+  }
+  .wf-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .wf-url {
+    background: white;
+    border-radius: 4px;
+    padding: 4px 12px;
+    margin-left: 8px;
+    font-size: 11px;
+    color: #666;
+    flex: 1;
+    font-family: monospace;
+  }
+  /* Hero section wireframe */
+  .wf-nav { background: #0D1B2A; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; }
+  .wf-nav-logo { color: #C9A84C; font-weight: 700; font-size: 13px; }
+  .wf-nav-links { display: flex; gap: 16px; }
+  .wf-nav-link { color: rgba(255,255,255,0.7); font-size: 11px; }
+  .wf-nav-cta { background: #C9A84C; color: #0D1B2A; padding: 5px 12px; border-radius: 4px; font-size: 11px; font-weight: 700; }
+  .wf-hero-hp { background: linear-gradient(135deg, #0D1B2A, #1A3050); padding: 40px 30px; text-align: center; }
+  .wf-hero-badge { background: rgba(201,168,76,0.2); color: #C9A84C; display: inline-block; padding: 4px 12px; border-radius: 12px; font-size: 10px; margin-bottom: 12px; border: 1px solid rgba(201,168,76,0.3); }
+  .wf-hero-h1 { color: white; font-size: 20px; font-weight: 700; line-height: 1.3; margin-bottom: 8px; font-family: 'Playfair Display', serif; }
+  .wf-hero-sub { color: rgba(255,255,255,0.65); font-size: 12px; margin-bottom: 20px; max-width: 500px; margin-left: auto; margin-right: auto; }
+  .wf-hero-ctas { display: flex; gap: 10px; justify-content: center; }
+  .wf-btn-primary { background: #C9A84C; color: #0D1B2A; padding: 10px 20px; border-radius: 6px; font-size: 12px; font-weight: 700; }
+  .wf-btn-sec { background: transparent; color: white; padding: 10px 20px; border-radius: 6px; font-size: 12px; border: 1px solid rgba(255,255,255,0.3); }
+  .wf-trust-strip { background: rgba(255,255,255,0.04); padding: 10px 20px; display: flex; gap: 20px; justify-content: center; border-top: 1px solid rgba(255,255,255,0.06); flex-wrap: wrap; }
+  .wf-trust-item { color: rgba(255,255,255,0.55); font-size: 10px; display: flex; align-items: center; gap: 6px; }
+  .wf-trust-icon { color: #C9A84C; font-size: 12px; }
+  .wf-assets-strip { padding: 20px 20px; background: white; }
+  .wf-assets-title { font-size: 12px; color: #4A5568; text-align: center; margin-bottom: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+  .wf-assets-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; }
+  .wf-asset-tile { background: #F7F8FA; border-radius: 6px; padding: 12px 6px; text-align: center; border: 1px solid #E2E8F0; cursor: pointer; }
+  .wf-asset-icon { font-size: 18px; margin-bottom: 4px; }
+  .wf-asset-label { font-size: 9px; color: #718096; font-weight: 600; }
+  .wf-social-proof { background: #F7F8FA; padding: 16px 20px; display: flex; gap: 20px; justify-content: space-around; border-top: 1px solid #E2E8F0; }
+  .wf-sp-item { text-align: center; }
+  .wf-sp-num { font-size: 18px; font-weight: 700; color: #0D1B2A; }
+  .wf-sp-label { font-size: 9px; color: #718096; text-transform: uppercase; }
+  /* annotation arrows */
+  .annotations { position: relative; }
+  .annotation {
+    position: absolute;
+    background: #C9A84C;
+    color: #0D1B2A;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .annotation::before {
+    content: '→ ';
+  }
+
+  /* ── CALLOUT BOXES ── */
+  .callout {
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin: 16px 0;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .callout-icon { font-size: 20px; flex-shrink: 0; }
+  .callout-body { font-size: 13.5px; line-height: 1.7; }
+  .callout-body strong { font-weight: 600; display: block; margin-bottom: 3px; }
+  .callout.warning { background: #FEF9E7; border: 1px solid #F9CA24; }
+  .callout.info { background: #EBF5FB; border: 1px solid #3498DB; }
+  .callout.success { background: #EAFAF1; border: 1px solid #2ECC71; }
+  .callout.danger { background: #FDEDEC; border: 1px solid #E74C3C; }
+
+  /* ── ON-PAGE TABLE ── */
+  .onpage-table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+  .onpage-table th { background: var(--navy); color: var(--gold-light); padding: 8px 12px; font-size: 10.5px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .onpage-table td { padding: 9px 12px; border-bottom: 1px solid rgba(0,0,0,0.05); vertical-align: top; }
+  .onpage-table tr:hover td { background: #FAFAFA; }
+  .tick { color: #27AE60; font-weight: 700; }
+  .cross { color: #C0392B; font-weight: 700; }
+  .warn { color: #E67E22; font-weight: 700; }
+
+  /* ── LOCAL SEO CARDS ── */
+  .local-card {
+    background: white;
+    border-radius: 10px;
+    border: 1px solid rgba(0,0,0,0.08);
+    padding: 18px 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  .local-card h4 { font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+  .local-card p, .local-card li { font-size: 13px; color: var(--slate); line-height: 1.6; }
+  .local-card ul { padding-left: 16px; }
+
+  /* ── BLOG AUDIT ── */
+  .blog-score-bar {
+    height: 8px;
+    background: #E2E8F0;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 6px;
+  }
+  .blog-score-fill {
+    height: 100%;
+    border-radius: 4px;
+  }
+
+  /* ── KEYWORD CLUSTER ── */
+  .kw-cluster {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--gold-pale);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 12px;
+    color: var(--navy-mid);
+    margin: 3px;
+    font-family: 'DM Mono', monospace;
+  }
+  .kw-cluster .vol { font-size: 10px; background: var(--gold); color: var(--navy); border-radius: 10px; padding: 1px 6px; }
+
+  /* ── NAV SIDEBAR (sticky) ── */
+  .page-nav {
+    position: fixed;
+    left: 0; top: 50%;
+    transform: translateY(-50%);
+    background: var(--navy);
+    border-radius: 0 10px 10px 0;
+    padding: 12px 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    z-index: 100;
+  }
+  .nav-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .nav-dot:hover, .nav-dot.active { background: var(--gold); transform: scale(1.4); }
+  .nav-dot[title]:hover::after {
+    content: attr(title);
+    position: absolute;
+    left: 16px;
+    background: var(--navy);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    white-space: nowrap;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.4);
+    text-align: center;
+    padding: 28px;
+    font-size: 12px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .footer span { color: var(--gold-light); }
+
+  @media (max-width: 768px) {
+    .score-inner { grid-template-columns: repeat(3, 1fr); }
+    .two-col, .three-col, .exec-grid { grid-template-columns: 1fr; }
+    .hero-title { font-size: 28px; }
+    .hero-inner { flex-direction: column; }
+    .hero-info { text-align: left; }
+    .page-nav { display: none; }
+    .main { padding: 30px 20px 60px; }
+    .wf-assets-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<!-- STICKY NAV -->
+<nav class="page-nav" id="sideNav">
+  <div class="nav-dot active" title="Overview" onclick="scrollTo('hero')"></div>
+  <div class="nav-dot" title="Technical" onclick="scrollTo('technical')"></div>
+  <div class="nav-dot" title="On-Page" onclick="scrollTo('onpage')"></div>
+  <div class="nav-dot" title="Off-Page" onclick="scrollTo('offpage')"></div>
+  <div class="nav-dot" title="Keywords" onclick="scrollTo('keywords')"></div>
+  <div class="nav-dot" title="New Pages" onclick="scrollTo('newpages')"></div>
+  <div class="nav-dot" title="Local SEO" onclick="scrollTo('local')"></div>
+  <div class="nav-dot" title="National" onclick="scrollTo('national')"></div>
+  <div class="nav-dot" title="Blog" onclick="scrollTo('blog')"></div>
+  <div class="nav-dot" title="CRO" onclick="scrollTo('cro')"></div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="hero">
+  <div class="hero-inner">
+    <div class="hero-logo">
+      <div class="logo-mark">Y</div>
+      <div class="logo-text">
+        <span class="logo-name">YukariSEO</span>
+        <span class="logo-sub">Strategic SEO Agency</span>
+      </div>
+    </div>
+    <div class="hero-info">
+      <div class="hero-client">LoanAgainstAssets.co.uk</div>
+      <div class="hero-date">Audit Date: April 2026 &nbsp;·&nbsp; Prepared by YukariSEO</div>
+    </div>
+    <div class="hero-title-block">
+      <h1 class="hero-title">Comprehensive <span>SEO Audit</span><br>& Growth Strategy</h1>
+      <p class="hero-subtitle">Technical · On-Page · Off-Page · Keyword Mapping · Local SEO · National Strategy · Blog Optimisation · CRO</p>
+    </div>
+  </div>
+</header>
+
+<!-- SCORE STRIP -->
+<div class="score-strip">
+  <div class="score-inner">
+    <div class="score-card">
+      <div class="score-num red">2</div>
+      <div class="score-label">Ranking Keywords</div>
+    </div>
+    <div class="score-card">
+      <div class="score-num orange">~2</div>
+      <div class="score-label">Est. Monthly Traffic</div>
+    </div>
+    <div class="score-card">
+      <div class="score-num red">0</div>
+      <div class="score-label">Top 10 Rankings</div>
+    </div>
+    <div class="score-card">
+      <div class="score-num orange">14</div>
+      <div class="score-label">Critical Issues</div>
+    </div>
+    <div class="score-card">
+      <div class="score-num gold">22</div>
+      <div class="score-label">Avg. Competitor BLs</div>
+    </div>
+    <div class="score-card">
+      <div class="score-num green">8,100</div>
+      <div class="score-label">Top Opportunity (vol)</div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<main class="main">
+
+  <!-- EXEC SUMMARY -->
+  <div class="exec-summary">
+    <h2>Executive Summary</h2>
+    <p>LoanAgainstAssets.co.uk is a young but promising asset-backed lending and pawnbroking business, FCA-regulated and operating from Canary Wharf, London. The site is currently indexed by Google but has near-zero organic visibility — ranking only for its own brand name and the tail variation "loan against property" at position 89–103. The domain authority is negligible, the site title is still the default WordPress "My Blog", and virtually every on-page SEO signal is either missing or misconfigured. However, the business model sits in an underserved niche with low-to-medium keyword difficulty on many high-value asset loan terms, meaning rapid wins are achievable within 3–6 months with focused effort.</p>
+    <div class="exec-grid">
+      <div class="exec-item">
+        <h4>Biggest Quick Win</h4>
+        <p>Fix site title, add H1s, create dedicated service pages for each asset type (watches, gold, jewellery, cars). These pages can rank within 60–90 days for low-competition terms.</p>
+      </div>
+      <div class="exec-item">
+        <h4>Biggest Growth Lever</h4>
+        <p>"Pawnbroker near me" has 8,100 monthly UK searches. GMB optimisation + location landing pages targeting East London boroughs is the highest-volume local opportunity.</p>
+      </div>
+      <div class="exec-item">
+        <h4>Biggest Risk</h4>
+        <p>The site title "My Blog" will critically damage CTR across all keywords. WordPress default settings must be changed immediately before any other work proceeds.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 1. TECHNICAL SEO -->
+  <section class="section" id="technical">
+    <div class="section-header">
+      <div class="section-icon">⚙️</div>
+      <div>
+        <div class="section-num">Section 01</div>
+        <h2 class="section-title">Technical SEO Audit</h2>
+      </div>
+    </div>
+
+    <div class="callout danger">
+      <span class="callout-icon">🚨</span>
+      <div class="callout-body">
+        <strong>Site Title is "My Blog" — This is a P0 Emergency</strong>
+        The site title and meta title showing as "My Blog: Home" in Google SERPs is the single most damaging issue on this site. It signals low quality to both Google and users, will crush CTR, and must be fixed before anything else.
+      </div>
+    </div>
+
+    <div class="issue-list">
+
+      <div class="issue critical">
+        <div class="issue-top">
+          <span class="issue-title">🔴 Site Name = "My Blog" (WordPress Default)</span>
+          <span class="badge badge-critical">Critical</span>
+        </div>
+        <p class="issue-desc">The WordPress site name is set to "My Blog" — this appears as the title in Google SERPs, browser tabs, and social shares. All ranked pages show "My Blog: Home" or "My Blog - [Page Name]". This destroys brand recognition and CTR.</p>
+        <div class="issue-fix"><strong>Fix:</strong> WordPress Admin → Settings → General → Change "Site Title" to "Loan Against Assets UK | FCA-Regulated Asset Loans | LoanAgainstAssets.co.uk" and Tagline to "Fast, Discreet Loans Against Luxury Watches, Jewellery, Gold, Cars & Property."</div>
+      </div>
+
+      <div class="issue critical">
+        <div class="issue-top">
+          <span class="issue-title">🔴 No Individual Page Meta Titles or Descriptions</span>
+          <span class="badge badge-critical">Critical</span>
+        </div>
+        <p class="issue-desc">No pages have unique, keyword-optimised meta titles or descriptions set. Google is auto-generating snippets from body content — all currently pulling from navigation menus.</p>
+        <div class="issue-fix"><strong>Fix:</strong> Install Yoast SEO or RankMath. Set unique &lt;60 char titles and &lt;160 char meta descriptions for every page. Each service page title should follow: [Asset Type] Loan UK | No Credit Check | LoanAgainstAssets</div>
+      </div>
+
+      <div class="issue critical">
+        <div class="issue-top">
+          <span class="issue-title">🔴 Homepage H1 = "Home" (Semantically Worthless)</span>
+          <span class="badge badge-critical">Critical</span>
+        </div>
+        <p class="issue-desc">The homepage H1 tag contains only the word "Home" — this is a WordPress navigation label being rendered as the page heading. Google uses the H1 as a primary relevance signal.</p>
+        <div class="issue-fix"><strong>Fix:</strong> Change homepage H1 to: "Asset-Backed Loans in the UK — Borrow Against Your Valuables Today" or similar keyword-rich heading. Every page must have exactly one H1.</div>
+      </div>
+
+      <div class="issue critical">
+        <div class="issue-top">
+          <span class="issue-title">🔴 No Structured Data / Schema Markup</span>
+          <span class="badge badge-critical">Critical</span>
+        </div>
+        <p class="issue-desc">Zero Schema markup detected on any page. For a financial services firm, LocalBusiness, FAQPage, Service, and BreadcrumbList schema are essential for SERP rich results and AI Overview citations.</p>
+        <div class="issue-fix"><strong>Fix:</strong> Implement: <code>LocalBusiness</code> schema on homepage (with FCA reg number, address, phone, opening hours), <code>FAQPage</code> schema on FAQ page, <code>Service</code> schema on each asset loan page, <code>BreadcrumbList</code> on all pages. Use RankMath or a custom plugin for WordPress.</div>
+      </div>
+
+      <div class="issue high">
+        <div class="issue-top">
+          <span class="issue-title">🟠 No XML Sitemap in Google Search Console (likely)</span>
+          <span class="badge badge-high">High</span>
+        </div>
+        <p class="issue-desc">While sitemaps exist at /page-sitemap1.xml, /post-sitemap1.xml and /category-sitemap1.xml, there is no evidence a sitemap index has been submitted to GSC. Category sitemap suggests WordPress categories with no real content.</p>
+        <div class="issue-fix"><strong>Fix:</strong> Create a sitemap index file at /sitemap.xml pointing to all three sitemaps. Submit to Google Search Console and Bing Webmaster Tools. Remove empty category pages from sitemap or set to noindex.</div>
+      </div>
+
+      <div class="issue high">
+        <div class="issue-top">
+          <span class="issue-title">🟠 Local Landing Pages Have No Unique Content</span>
+          <span class="badge badge-high">High</span>
+        </div>
+        <p class="issue-desc">The site has 25+ location pages (Berkshire, Canary Wharf, Greenwich etc.) but all appear to be thin/duplicate content pages with no localised copy, local schema, or unique service descriptions. These will trigger Google's thin content/spam filters.</p>
+        <div class="issue-fix"><strong>Fix:</strong> Either (a) add 600+ words of localised, unique content to each priority location page OR (b) noindex/remove low-priority location pages and consolidate into a well-structured local landing page strategy (see Section 7).</div>
+      </div>
+
+      <div class="issue high">
+        <div class="issue-top">
+          <span class="issue-title">🟠 No robots.txt or Canonical Tags Verified</span>
+          <span class="badge badge-high">High</span>
+        </div>
+        <p class="issue-desc">No evidence of proper robots.txt directives or canonical tags. Duplicate content risk from www/non-www, HTTP/HTTPS, and URL parameter variations.</p>
+        <div class="issue-fix"><strong>Fix:</strong> Verify robots.txt at /robots.txt, set canonical to HTTPS non-www (or www consistently), and ensure all pages have self-referencing canonicals via SEO plugin.</div>
+      </div>
+
+      <div class="issue high">
+        <div class="issue-top">
+          <span class="issue-title">🟠 Core Web Vitals — Unknown (Likely Poor)</span>
+          <span class="badge badge-high">High</span>
+        </div>
+        <p class="issue-desc">The site uses multiple large WhatsApp image uploads (PNG with "removebg" in filenames) as the logo. These unoptimised images combined with WordPress defaults likely mean poor LCP scores. Mobile performance is a ranking factor.</p>
+        <div class="issue-fix"><strong>Fix:</strong> Run PageSpeed Insights. Compress and convert all images to WebP. Use lazy loading. Consider a caching plugin (WP Rocket or LiteSpeed Cache). Target LCP &lt;2.5s, CLS &lt;0.1, INP &lt;200ms.</div>
+      </div>
+
+      <div class="issue medium">
+        <div class="issue-top">
+          <span class="issue-title">🔵 Internal Linking is Minimal</span>
+          <span class="badge badge-medium">Medium</span>
+        </div>
+        <p class="issue-desc">Pages do not link to each other using keyword-rich anchor text. Blog posts don't link to relevant service pages. The link equity and topical authority signals are lost.</p>
+        <div class="issue-fix"><strong>Fix:</strong> Build an internal linking map. Every blog post should link to at least 2 relevant service pages. Service pages should cross-link. Use descriptive anchor text (e.g., "loan against a Rolex" not "click here").</div>
+      </div>
+
+      <div class="issue medium">
+        <div class="issue-top">
+          <span class="issue-title">🔵 Missing Open Graph & Twitter Card Tags</span>
+          <span class="badge badge-medium">Medium</span>
+        </div>
+        <p class="issue-desc">No OG tags detected. Social shares will appear with generic previews, hurting social traffic CTR.</p>
+        <div class="issue-fix"><strong>Fix:</strong> Add og:title, og:description, og:image to all pages via Yoast/RankMath. Create a branded OG image template (1200×630px) for blog posts.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 2. ON-PAGE SEO -->
+  <section class="section" id="onpage">
+    <div class="section-header">
+      <div class="section-icon">📄</div>
+      <div>
+        <div class="section-num">Section 02</div>
+        <h2 class="section-title">On-Page SEO Audit</h2>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><h3>Page-Level On-Page Signals Audit</h3><span class="badge badge-critical">Multiple Critical Issues</span></div>
+      <div class="card-body">
+        <table class="onpage-table">
+          <thead>
+            <tr>
+              <th>Page</th>
+              <th>URL</th>
+              <th>Kw in URL</th>
+              <th>H1 Present</th>
+              <th>H1 Optimised</th>
+              <th>Meta Title</th>
+              <th>Meta Desc</th>
+              <th>Priority Fix</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Homepage</strong></td>
+              <td class="kw">/</td>
+              <td class="warn">N/A</td>
+              <td class="cross">❌ "Home"</td>
+              <td class="cross">❌</td>
+              <td class="cross">❌ "My Blog"</td>
+              <td class="cross">❌ None</td>
+              <td><span class="badge badge-critical">Critical</span></td>
+            </tr>
+            <tr>
+              <td><strong>We Lend Against</strong></td>
+              <td class="kw">/we-lend-against/</td>
+              <td class="warn">⚠️ Weak</td>
+              <td class="warn">⚠️ Generic</td>
+              <td class="cross">❌</td>
+              <td class="cross">❌</td>
+              <td class="cross">❌ None</td>
+              <td><span class="badge badge-critical">Critical</span></td>
+            </tr>
+            <tr>
+              <td><strong>Blog (index)</strong></td>
+              <td class="kw">/blog/</td>
+              <td class="tick">✅</td>
+              <td class="cross">❌ "Blog"</td>
+              <td class="cross">❌</td>
+              <td class="cross">❌</td>
+              <td class="cross">❌</td>
+              <td><span class="badge badge-high">High</span></td>
+            </tr>
+            <tr>
+              <td><strong>FAQ</strong></td>
+              <td class="kw">/faqs/</td>
+              <td class="warn">⚠️ Weak</td>
+              <td class="warn">⚠️ Unknown</td>
+              <td class="cross">❌</td>
+              <td class="cross">❌</td>
+              <td class="cross">❌</td>
+              <td><span class="badge badge-high">High</span></td>
+            </tr>
+            <tr>
+              <td><strong>Blog: Pawnbroking History</strong></td>
+              <td class="kw">/the-history-and-modern-evolution-ofpawnbroking-in-the-uk/</td>
+              <td class="warn">⚠️ Long/typo</td>
+              <td class="tick">✅ Present</td>
+              <td class="warn">⚠️ Weak</td>
+              <td class="cross">❌</td>
+              <td class="cross">❌</td>
+              <td><span class="badge badge-high">High</span></td>
+            </tr>
+            <tr>
+              <td><strong>Blog: Crypto Loan</strong></td>
+              <td class="kw">/how-to-borrow-against-bitcoin-ethereum-usdt-in-the-uk-2025-guide/</td>
+              <td class="tick">✅ Good</td>
+              <td class="tick">✅ Present</td>
+              <td class="warn">⚠️ Moderate</td>
+              <td class="cross">❌</td>
+              <td class="cross">❌</td>
+              <td><span class="badge badge-medium">Medium</span></td>
+            </tr>
+            <tr>
+              <td><strong>Location Pages (x25)</strong></td>
+              <td class="kw">/london/, /greenwich/, etc.</td>
+              <td class="tick">✅ Slug OK</td>
+              <td class="cross">❌ Likely default</td>
+              <td class="cross">❌</td>
+              <td class="cross">❌</td>
+              <td class="cross">❌</td>
+              <td><span class="badge badge-high">High</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="two-col" style="margin-top:20px;">
+      <div class="card">
+        <div class="card-head"><h3>Recommended Meta Title Templates</h3></div>
+        <div class="card-body">
+          <div style="display:flex;flex-direction:column;gap:12px;font-size:13px;">
+            <div style="background:#F7F8FA;border-radius:6px;padding:10px 12px;border-left:3px solid var(--gold);">
+              <strong style="font-size:11px;color:var(--slate-light);text-transform:uppercase;letter-spacing:.06em;">Homepage</strong><br>
+              Loan Against Assets UK | FCA-Regulated | LoanAgainstAssets.co.uk
+            </div>
+            <div style="background:#F7F8FA;border-radius:6px;padding:10px 12px;border-left:3px solid var(--gold);">
+              <strong style="font-size:11px;color:var(--slate-light);text-transform:uppercase;letter-spacing:.06em;">Service Pages</strong><br>
+              Loan Against [Asset] UK | No Credit Check | From £150
+            </div>
+            <div style="background:#F7F8FA;border-radius:6px;padding:10px 12px;border-left:3px solid var(--gold);">
+              <strong style="font-size:11px;color:var(--slate-light);text-transform:uppercase;letter-spacing:.06em;">Location Pages</strong><br>
+              Pawnbroker [Location] | Asset Loans | LoanAgainstAssets
+            </div>
+            <div style="background:#F7F8FA;border-radius:6px;padding:10px 12px;border-left:3px solid var(--gold);">
+              <strong style="font-size:11px;color:var(--slate-light);text-transform:uppercase;letter-spacing:.06em;">Blog Posts</strong><br>
+              [Topic] | Expert Guide | LoanAgainstAssets.co.uk
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-head"><h3>H1 Recommendations</h3></div>
+        <div class="card-body">
+          <div style="display:flex;flex-direction:column;gap:10px;font-size:13px;">
+            <div><strong>Homepage H1:</strong><br><em style="color:#2471A3;">"Asset-Backed Loans UK — Get Cash Against Your Valuables, Fast"</em></div>
+            <div><strong>We Lend Against:</strong><br><em style="color:#2471A3;">"What We Lend Against — Watches, Gold, Jewellery, Cars & More"</em></div>
+            <div><strong>Watch Loans Page:</strong><br><em style="color:#2471A3;">"Loan Against a Watch UK — Fast Cash, No Credit Check"</em></div>
+            <div><strong>Gold Loans Page:</strong><br><em style="color:#2471A3;">"Loan Against Gold UK — Competitive Rates, Same-Day Funds"</em></div>
+            <div><strong>London Location Page:</strong><br><em style="color:#2471A3;">"Pawnbroker London — Asset Loans in Canary Wharf & East London"</em></div>
+            <div style="font-size:12px;color:var(--slate-light);margin-top:6px;padding-top:8px;border-top:1px solid #E2E8F0;">⚠️ Rule: One H1 per page. Use H2s for sub-sections. Never repeat H1 text in the URL slug.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout info" style="margin-top:20px;">
+      <span class="callout-icon">💡</span>
+      <div class="callout-body">
+        <strong>URL Structure Issue — Blog Post Title</strong>
+        The blog post URL <code>/the-history-and-modern-evolution-ofpawnbroking-in-the-uk/</code> contains a typo ("ofpawnbroking" without a space/hyphen). This type of error signals low editorial quality to Google. For new posts, enforce a URL slug limit of 5–7 words. Existing post URLs should NOT be changed unless 301 redirects are set up.
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. OFF-PAGE SEO -->
+  <section class="section" id="offpage">
+    <div class="section-header">
+      <div class="section-icon">🔗</div>
+      <div>
+        <div class="section-num">Section 03</div>
+        <h2 class="section-title">Off-Page SEO &amp; Backlink Audit</h2>
+      </div>
+    </div>
+
+    <div class="metric-row">
+      <div class="metric"><div class="metric-val" style="color:#E74C3C;">~0</div><div class="metric-key">Referring Domains</div></div>
+      <div class="metric"><div class="metric-val" style="color:#E74C3C;">~0</div><div class="metric-key">Dofollow Links</div></div>
+      <div class="metric"><div class="metric-val" style="color:#E74C3C;">Very Low</div><div class="metric-key">Domain Authority</div></div>
+      <div class="metric"><div class="metric-val" style="color:#F39C12;">22</div><div class="metric-key">Avg BLs (Top SERP)</div></div>
+      <div class="metric"><div class="metric-val" style="color:#F39C12;">15</div><div class="metric-key">Avg RDs (Top SERP)</div></div>
+    </div>
+
+    <div class="callout warning">
+      <span class="callout-icon">⚠️</span>
+      <div class="callout-body">
+        <strong>Backlinks API Not Available — Competitor Data Used</strong>
+        The DataForSEO Backlinks subscription is not active for this audit. Competitor backlink benchmarks are derived from the avg_backlinks_info data attached to keyword SERP data. Direct domain backlink data will be added once the Backlinks API is activated.
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><h3>Competitor Backlink Benchmarks (from SERP Data)</h3></div>
+      <div class="card-body">
+        <table class="data-table">
+          <thead>
+            <tr><th>Competitor</th><th>Ranking Position</th><th>Key Rankings</th><th>Relative Authority</th><th>Strategy</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>suttonsandrobertsons.com</strong></td>
+              <td class="vol">#1</td>
+              <td>pawnbroker london, loan against watch, loan against gold</td>
+              <td><span class="kd-high">High (est. DR 50+)</span></td>
+              <td>Established 1770 brand, heavy editorial links</td>
+            </tr>
+            <tr>
+              <td><strong>www.theluxuryhut.com</strong></td>
+              <td class="vol">#3</td>
+              <td>pawnbroker london, loan against watch</td>
+              <td><span class="kd-med">Medium (est. DR 35+)</span></td>
+              <td>Luxury niche focus, good on-page SEO</td>
+            </tr>
+            <tr>
+              <td><strong>www.suroscapital.co.uk</strong></td>
+              <td class="vol">#1 for watches</td>
+              <td>loan against watch #1, loan against gold #1</td>
+              <td><span class="kd-med">Medium</span></td>
+              <td>Highly specialised asset finance pages</td>
+            </tr>
+            <tr>
+              <td><strong>unbolted.com</strong></td>
+              <td class="vol">Top 10</td>
+              <td>loan against watch, loan against gold</td>
+              <td><span class="kd-med">Medium</span></td>
+              <td>Online-first, good content strategy</td>
+            </tr>
+            <tr>
+              <td><strong>luxbrokers.co.uk</strong></td>
+              <td class="vol">Top 20</td>
+              <td>loan against watch, pawnbroker london</td>
+              <td><span class="kd-low">Low-Medium</span></td>
+              <td>Similar profile to LoanAgainstAssets — winnable</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:20px;">
+      <div class="card-head"><h3>Link Building Strategy — Priority Actions</h3></div>
+      <div class="card-body">
+        <div class="issue-list">
+          <div class="issue high">
+            <div class="issue-top"><span class="issue-title">FCA Register & Regulatory Citations</span><span class="badge badge-high">Priority 1</span></div>
+            <p class="issue-desc">As an FCA-regulated firm, ensure a citation/link appears from fca.org.uk register, ncapawnbrokers.co.uk (National Consumer Association), and the Consumer Credit Register. These are high-trust, topically relevant citations.</p>
+          </div>
+          <div class="issue high">
+            <div class="issue-top"><span class="issue-title">UK Finance Directory & Business Listings</span><span class="badge badge-high">Priority 2</span></div>
+            <p class="issue-desc">Submit to: Yell.com, Yelp UK, FreeIndex, Trustpilot (create profile), Google Business Profile, Bing Places, Thomson Local, Checkatrade category pages. These are foundational NAP citations for local SEO.</p>
+          </div>
+          <div class="issue high">
+            <div class="issue-top"><span class="issue-title">PR & Journalist Outreach</span><span class="badge badge-high">Priority 3</span></div>
+            <p class="issue-desc">Journalists regularly write about alternative finance, pawnbroking, and luxury asset loans (see ldnfashion.com, moneysavingexpert forums, This Is Money). Pitch data-driven stories: "What Luxury Assets Hold Value Best for Loans?" Create a HARO/Qwoted profile to respond to journalist queries about pawnbroking/alternative finance.</p>
+          </div>
+          <div class="issue medium">
+            <div class="issue-top"><span class="issue-title">Luxury Watch & Jewellery Community Links</span><span class="badge badge-medium">Priority 4</span></div>
+            <p class="issue-desc">Target watchForum.co.uk, ukwatchforum.co.uk, and luxury jewellery/antiques communities. Contribute genuinely helpful content about using asset loans for watch collectors. These community links are highly topically relevant.</p>
+          </div>
+          <div class="issue medium">
+            <div class="issue-top"><span class="issue-title">Guest Posting on Finance & Alternative Lending Blogs</span><span class="badge badge-medium">Priority 5</span></div>
+            <p class="issue-desc">Target: lovemoney.com, thisismoney.co.uk, moneyfacts.co.uk, growthbusiness.co.uk. Pitch articles about "How Asset Loans Work", "When a Pawnbroker Beats a Bank Loan" etc. These create high-authority dofollow links.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. KEYWORD MAPPING -->
+  <section class="section" id="keywords">
+    <div class="section-header">
+      <div class="section-icon">🎯</div>
+      <div>
+        <div class="section-num">Section 04</div>
+        <h2 class="section-title">Keyword Mapping &amp; Research</h2>
+      </div>
+    </div>
+
+    <div class="callout info">
+      <span class="callout-icon">ℹ️</span>
+      <div class="callout-body">
+        <strong>Focus: "Asset Loans" in the UK</strong>
+        All keywords below are approved-direction terms focused on asset-backed lending, pawnbroking, and related services in the UK market. Keywords are mapped to existing or recommended pages. Approved topics from client include: watches, jewellery, gold, silver, platinum, cars, land & property, and crypto.
+      </div>
+    </div>
+
+    <!-- Service / Commercial Keywords -->
+    <div class="card">
+      <div class="card-head"><h3>Commercial / Transactional Keywords — Service Pages (Bottom of Funnel)</h3><span class="badge badge-high">Highest Priority</span></div>
+      <div class="card-body">
+        <table class="data-table">
+          <thead>
+            <tr><th>Keyword</th><th>Monthly Searches</th><th>KD</th><th>CPC</th><th>Competition</th><th>Intent</th><th>Map To Page</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="kw">pawnbroker near me</td>
+              <td class="vol">8,100</td>
+              <td class="kd-med">52</td>
+              <td>£3.49</td>
+              <td>LOW</td>
+              <td><span class="intent-com intent">Commercial</span></td>
+              <td>GMB + Location Hub Page</td>
+            </tr>
+            <tr>
+              <td class="kw">pawnbroker london</td>
+              <td class="vol">1,300</td>
+              <td class="kd-med">29</td>
+              <td>£7.47</td>
+              <td>HIGH</td>
+              <td><span class="intent-com intent">Commercial</span></td>
+              <td>/london/ (rebuild)</td>
+            </tr>
+            <tr>
+              <td class="kw">loan against car</td>
+              <td class="vol">1,000</td>
+              <td class="kd-low">Medium</td>
+              <td>£8.63</td>
+              <td>MEDIUM</td>
+              <td><span class="intent-com intent">Commercial</span></td>
+              <td>/loan-against-car/ (new)</td>
+            </tr>
+            <tr>
+              <td class="kw">loan against property uk</td>
+              <td class="vol">880</td>
+              <td class="kd-low">10</td>
+              <td>£64.40</td>
+              <td>MEDIUM</td>
+              <td><span class="intent-nav intent">Navigational</span></td>
+              <td>/loan-against-property/ (new)</td>
+            </tr>
+            <tr>
+              <td class="kw">logbook loan uk</td>
+              <td class="vol">720</td>
+              <td class="kd-low">4</td>
+              <td>£4.11</td>
+              <td>HIGH</td>
+              <td><span class="intent-nav intent">Nav/Commercial</span></td>
+              <td>/logbook-loan/ (new)</td>
+            </tr>
+            <tr>
+              <td class="kw">loan against assets</td>
+              <td class="vol">110</td>
+              <td class="kd-med">Medium</td>
+              <td>£18.16</td>
+              <td>HIGH</td>
+              <td><span class="intent-com intent">Commercial</span></td>
+              <td>Homepage (primary)</td>
+            </tr>
+            <tr>
+              <td class="kw">loan against gold</td>
+              <td class="vol">90</td>
+              <td class="kd-low">17</td>
+              <td>£6.44</td>
+              <td>MEDIUM</td>
+              <td><span class="intent-com intent">Commercial</span></td>
+              <td>/loan-against-gold/ (new)</td>
+            </tr>
+            <tr>
+              <td class="kw">loan against watch</td>
+              <td class="vol">70</td>
+              <td class="kd-low">14</td>
+              <td>£17.44</td>
+              <td>LOW</td>
+              <td><span class="intent-com intent">Commercial</span></td>
+              <td>/loan-against-watch/ (new)</td>
+            </tr>
+            <tr>
+              <td class="kw">loan against jewellery</td>
+              <td class="vol">40</td>
+              <td class="kd-low">Low</td>
+              <td>£19.96</td>
+              <td>MEDIUM</td>
+              <td><span class="intent-com intent">Commercial</span></td>
+              <td>/loan-against-jewellery/ (new)</td>
+            </tr>
+            <tr>
+              <td class="kw">pawn gold london</td>
+              <td class="vol">40</td>
+              <td class="kd-low">Low</td>
+              <td>£3.01</td>
+              <td>MEDIUM</td>
+              <td><span class="intent-nav intent">Nav/Commercial</span></td>
+              <td>/london/ + /loan-against-gold/</td>
+            </tr>
+            <tr>
+              <td class="kw">loan against land</td>
+              <td class="vol">30</td>
+              <td class="kd-high">64</td>
+              <td>£17.10</td>
+              <td>HIGH</td>
+              <td><span class="intent-com intent">Commercial</span></td>
+              <td>/loan-against-land/ (new)</td>
+            </tr>
+            <tr>
+              <td class="kw">loan against rolex</td>
+              <td class="vol">10</td>
+              <td class="kd-low">4</td>
+              <td>£21.11</td>
+              <td>HIGH</td>
+              <td><span class="intent-com intent">Commercial</span></td>
+              <td>/loan-against-watch/ (target as cluster)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Informational / Blog Keywords -->
+    <div class="card" style="margin-top:20px;">
+      <div class="card-head"><h3>Informational / Top-of-Funnel Keywords — Blog Content</h3><span class="badge badge-medium">Content Strategy</span></div>
+      <div class="card-body">
+        <table class="data-table">
+          <thead>
+            <tr><th>Keyword / Query</th><th>Type</th><th>Est. Volume</th><th>Intent</th><th>Blog Topic to Target</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="kw">what assets can I borrow against UK</td>
+              <td>People Also Ask</td>
+              <td class="vol">—</td>
+              <td><span class="intent-inf intent">Informational</span></td>
+              <td>"Complete Guide to Asset-Backed Loans in the UK"</td>
+            </tr>
+            <tr>
+              <td class="kw">can I borrow money against my assets</td>
+              <td>People Also Ask</td>
+              <td class="vol">—</td>
+              <td><span class="intent-inf intent">Informational</span></td>
+              <td>"How to Borrow Against Your Assets — Explained"</td>
+            </tr>
+            <tr>
+              <td class="kw">how do rich people borrow against their assets</td>
+              <td>People Also Ask</td>
+              <td class="vol">—</td>
+              <td><span class="intent-inf intent">Informational</span></td>
+              <td>"The 'Buy, Borrow, Die' Strategy & UK Asset Loans"</td>
+            </tr>
+            <tr>
+              <td class="kw">is it wise to borrow against your assets</td>
+              <td>People Also Ask</td>
+              <td class="vol">—</td>
+              <td><span class="intent-inf intent">Informational</span></td>
+              <td>"Pros and Cons of Borrowing Against Assets"</td>
+            </tr>
+            <tr>
+              <td class="kw">what can I pawn for money UK</td>
+              <td>Informational</td>
+              <td class="vol">Medium</td>
+              <td><span class="intent-inf intent">Informational</span></td>
+              <td>"What Can You Pawn? 15 Assets That Qualify for Loans"</td>
+            </tr>
+            <tr>
+              <td class="kw">how pawnbroker works UK</td>
+              <td>Informational</td>
+              <td class="vol">Medium</td>
+              <td><span class="intent-inf intent">Informational</span></td>
+              <td>"How Does a Pawnbroker Work? UK Guide 2026"</td>
+            </tr>
+            <tr>
+              <td class="kw">loan against assets vs personal loan uk</td>
+              <td>Comparison</td>
+              <td class="vol">Low</td>
+              <td><span class="intent-inf intent">Informational</span></td>
+              <td>Existing blog post — optimise (see Blog Audit)</td>
+            </tr>
+            <tr>
+              <td class="kw">your rights when using a pawnbroker uk</td>
+              <td>Informational</td>
+              <td class="vol">Low</td>
+              <td><span class="intent-inf intent">Informational</span></td>
+              <td>Existing blog post — optimise (see Blog Audit)</td>
+            </tr>
+            <tr>
+              <td class="kw">borrow against bitcoin uk 2026</td>
+              <td>Informational</td>
+              <td class="vol">Low</td>
+              <td><span class="intent-inf intent">Informational</span></td>
+              <td>Existing blog post — optimise & update</td>
+            </tr>
+            <tr>
+              <td class="kw">how much can I get for my rolex at a pawnbroker</td>
+              <td>Informational</td>
+              <td class="vol">Low</td>
+              <td><span class="intent-inf intent">Informational</span></td>
+              <td>"How Much Can You Get for a Rolex at a Pawnbroker?"</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Keyword Clusters -->
+    <div class="card" style="margin-top:20px;">
+      <div class="card-head"><h3>Topical Keyword Clusters — Group by Service Page</h3></div>
+      <div class="card-body">
+        <p style="font-size:13px;color:var(--slate);margin-bottom:16px;">Each service page should target the core keyword + all cluster variations in H2s, body copy, and FAQs:</p>
+        <div style="margin-bottom:16px;">
+          <strong style="font-size:13px;display:block;margin-bottom:8px;">⌚ Watch Loan Page</strong>
+          <span class="kw-cluster">loan against watch <span class="vol">70/mo</span></span>
+          <span class="kw-cluster">loan against rolex <span class="vol">10/mo</span></span>
+          <span class="kw-cluster">borrow against rolex uk</span>
+          <span class="kw-cluster">pawn luxury watch london</span>
+          <span class="kw-cluster">loan against omega uk</span>
+          <span class="kw-cluster">watch-backed loan uk</span>
+          <span class="kw-cluster">pawn rolex for cash</span>
+        </div>
+        <div style="margin-bottom:16px;">
+          <strong style="font-size:13px;display:block;margin-bottom:8px;">💛 Gold & Precious Metals Page</strong>
+          <span class="kw-cluster">loan against gold <span class="vol">90/mo</span></span>
+          <span class="kw-cluster">pawn gold london <span class="vol">40/mo</span></span>
+          <span class="kw-cluster">loan against silver uk</span>
+          <span class="kw-cluster">loan against platinum</span>
+          <span class="kw-cluster">gold-backed loan uk</span>
+          <span class="kw-cluster">sell gold vs pawn gold</span>
+        </div>
+        <div style="margin-bottom:16px;">
+          <strong style="font-size:13px;display:block;margin-bottom:8px;">💎 Jewellery Loan Page</strong>
+          <span class="kw-cluster">loan against jewellery <span class="vol">40/mo</span></span>
+          <span class="kw-cluster">secured loan against jewellery uk</span>
+          <span class="kw-cluster">pawn diamond ring uk</span>
+          <span class="kw-cluster">loan against designer jewellery</span>
+          <span class="kw-cluster">jewellery-backed loan</span>
+        </div>
+        <div style="margin-bottom:16px;">
+          <strong style="font-size:13px;display:block;margin-bottom:8px;">🚗 Car & Vehicle Loan Page</strong>
+          <span class="kw-cluster">loan against car <span class="vol">1,000/mo</span></span>
+          <span class="kw-cluster">logbook loan uk <span class="vol">720/mo</span></span>
+          <span class="kw-cluster">loan against classic car</span>
+          <span class="kw-cluster">loan against luxury car uk</span>
+          <span class="kw-cluster">borrow against vehicle uk</span>
+        </div>
+        <div>
+          <strong style="font-size:13px;display:block;margin-bottom:8px;">🏠 Property & Land Loan Page</strong>
+          <span class="kw-cluster">loan against property uk <span class="vol">880/mo</span></span>
+          <span class="kw-cluster">loan against land <span class="vol">30/mo</span></span>
+          <span class="kw-cluster">bridging loan against property</span>
+          <span class="kw-cluster">loan secured on property uk</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. NEW PAGES TO CREATE -->
+  <section class="section" id="newpages">
+    <div class="section-header">
+      <div class="section-icon">📋</div>
+      <div>
+        <div class="section-num">Section 05</div>
+        <h2 class="section-title">New Pages to Create — Keyword Gap Analysis</h2>
+      </div>
+    </div>
+
+    <div class="three-col">
+      <div class="local-card">
+        <h4>🆕 /loan-against-watch/</h4>
+        <p><strong>Target Keywords:</strong> loan against watch (70/mo), loan against Rolex (10/mo)</p>
+        <p><strong>Content Brief:</strong> 800–1,200 words. How the watch loan process works, types of watches accepted (Rolex, Patek Philippe, Omega, IWC, AP, Cartier), valuation process, LTV ratios, what to bring, FAQ section with schema.</p>
+        <p><strong>CTA:</strong> Prominent "Get a Quote for Your Watch" form.</p>
+        <p style="margin-top:8px;"><span class="badge badge-high">High Priority</span></p>
+      </div>
+      <div class="local-card">
+        <h4>🆕 /loan-against-gold/</h4>
+        <p><strong>Target Keywords:</strong> loan against gold (90/mo), pawn gold london (40/mo)</p>
+        <p><strong>Content Brief:</strong> 800+ words. Covers gold, silver, platinum. How gold is valued (weight, purity), market price linkage, how to prepare, loan amounts. Include a simple gold valuation calculator widget.</p>
+        <p><strong>CTA:</strong> "Calculate Your Gold Loan" calculator.</p>
+        <p style="margin-top:8px;"><span class="badge badge-high">High Priority</span></p>
+      </div>
+      <div class="local-card">
+        <h4>🆕 /loan-against-jewellery/</h4>
+        <p><strong>Target Keywords:</strong> loan against jewellery (40/mo), secured loan against jewellery</p>
+        <p><strong>Content Brief:</strong> Diamonds, precious stones, designer jewellery. Grading, certification, how diamonds are valued for lending. Include FAQ on what makes jewellery qualify.</p>
+        <p><strong>CTA:</strong> "Value My Jewellery" quote form.</p>
+        <p style="margin-top:8px;"><span class="badge badge-high">High Priority</span></p>
+      </div>
+      <div class="local-card">
+        <h4>🆕 /loan-against-car/</h4>
+        <p><strong>Target Keywords:</strong> loan against car (1,000/mo), logbook loan (720/mo)</p>
+        <p><strong>Content Brief:</strong> High volume! Distinguishes standard car loans from classic/luxury. Covers: logbook loans, how car valuation works, keeping vs. storing car, eligibility. Strongly differentiate from logbook loan companies on the trust/FCA/luxury angle.</p>
+        <p style="margin-top:8px;"><span class="badge badge-critical">Highest Volume</span></p>
+      </div>
+      <div class="local-card">
+        <h4>🆕 /loan-against-property/</h4>
+        <p><strong>Target Keywords:</strong> loan against property UK (880/mo, KD 10!)</p>
+        <p><strong>Content Brief:</strong> Very low difficulty for high volume keyword. Covers: property-backed short-term loans, land, unregistered property, how title deeds are used, bridging vs. asset loans. Link to HMLR and explain the process.</p>
+        <p style="margin-top:8px;"><span class="badge badge-critical">KD=10 — Quick Win!</span></p>
+      </div>
+      <div class="local-card">
+        <h4>🆕 /loan-against-cryptocurrency/</h4>
+        <p><strong>Target Keywords:</strong> loan against bitcoin, borrow against crypto uk</p>
+        <p><strong>Content Brief:</strong> Emerging query. Covers BTC, ETH, USDT. How crypto collateral works, custody process, LTV ratios, volatility risk explanation. Expand the existing blog post into a service page. Topical authority opportunity.</p>
+        <p style="margin-top:8px;"><span class="badge badge-medium">Medium Priority</span></p>
+      </div>
+      <div class="local-card">
+        <h4>🆕 /loan-against-art/</h4>
+        <p><strong>Target Keywords:</strong> loan against artwork uk, art-backed loans</p>
+        <p><strong>Content Brief:</strong> Art, fine art, sculptures, collectibles. How provenance matters, authentication requirements, appraisal process, which artists/periods accepted. Niche but high-value, low-competition space.</p>
+        <p style="margin-top:8px;"><span class="badge badge-medium">Medium Priority</span></p>
+      </div>
+      <div class="local-card">
+        <h4>🆕 /loan-calculator/ (enhanced)</h4>
+        <p><strong>Current State:</strong> Page exists but has no known interactive content. A working JavaScript loan calculator is a powerful SEO tool — users spend more time on page, it ranks for "asset loan calculator uk" queries, and it directly aids conversion.</p>
+        <p><strong>Content Brief:</strong> Interactive slider: Asset Value → LTV % → Monthly Rate → Show repayment schedule. Include representative example compliant with FCA requirements.</p>
+        <p style="margin-top:8px;"><span class="badge badge-high">High Priority</span></p>
+      </div>
+      <div class="local-card">
+        <h4>🆕 /how-it-works/</h4>
+        <p><strong>Target Keywords:</strong> how does a pawnbroker work uk</p>
+        <p><strong>Content Brief:</strong> Visual step-by-step process page. Step 1: Contact Us → Step 2: Valuation → Step 3: Receive Funds → Step 4: Repay or Extend. Include trust signals, timeline, FCA compliance info. Essential for middle-funnel users.</p>
+        <p style="margin-top:8px;"><span class="badge badge-high">High Priority</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. LOCAL SEO -->
+  <section class="section" id="local">
+    <div class="section-header">
+      <div class="section-icon">📍</div>
+      <div>
+        <div class="section-num">Section 06</div>
+        <h2 class="section-title">Local SEO Strategy</h2>
+      </div>
+    </div>
+
+    <div class="callout success">
+      <span class="callout-icon">🎯</span>
+      <div class="callout-body">
+        <strong>Huge Local Opportunity: "Pawnbroker near me" = 8,100 searches/month</strong>
+        This is the biggest single keyword opportunity on the entire site. Local pack rankings for this query will drive the majority of foot traffic and phone calls. The business is based at 36 Skyline Village, Canary Wharf, E14 — this is a strong commercial location that should be front-and-centre in local SEO.
+      </div>
+    </div>
+
+    <h3 style="font-size:18px;font-weight:700;color:var(--navy);margin:24px 0 16px;">Google Business Profile (GBP) Optimisation</h3>
+    <div class="three-col">
+      <div class="local-card">
+        <h4>📋 Profile Completeness</h4>
+        <ul>
+          <li>Verify the GBP listing for 36 Skyline Village</li>
+          <li>Add full business description (750 chars) with keywords: "FCA-regulated pawnbroker", "asset loans", "loan against watch/jewellery/gold"</li>
+          <li>Set primary category: <strong>Pawnbroker</strong></li>
+          <li>Add secondary categories: Loan Agency, Financial Consultant</li>
+          <li>Add all services with descriptions and prices</li>
+          <li>Upload 10+ high-quality photos: office exterior, interior, logo, team</li>
+        </ul>
+      </div>
+      <div class="local-card">
+        <h4>⭐ Reviews Strategy</h4>
+        <ul>
+          <li>Set a target: 50+ Google reviews within 6 months</li>
+          <li>Add QR code to loan documentation linking to review page</li>
+          <li>Send post-loan SMS/email with review request</li>
+          <li>Respond to ALL reviews — positive and negative</li>
+          <li>Keyword-rich responses: "thank you for using our watch loan service in Canary Wharf"</li>
+          <li>Create Trustpilot profile and cross-link</li>
+        </ul>
+      </div>
+      <div class="local-card">
+        <h4>📱 GBP Posts & Updates</h4>
+        <ul>
+          <li>Post weekly GBP updates about market prices (gold, watch market)</li>
+          <li>Post "Offer" posts for loan promotions</li>
+          <li>Add Q&A section pre-populated with common questions</li>
+          <li>Enable messaging and respond within 1 hour</li>
+          <li>Add service area: East London, Canary Wharf, Tower Hamlets, Greenwich, Isle of Dogs</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 style="font-size:18px;font-weight:700;color:var(--navy);margin:28px 0 16px;">Location Landing Page Strategy</h3>
+    <div class="card">
+      <div class="card-head"><h3>Priority Location Pages to Build (with unique content)</h3></div>
+      <div class="card-body">
+        <table class="data-table">
+          <thead>
+            <tr><th>Location Page</th><th>Target Keyword</th><th>Priority</th><th>Content Focus</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>/canary-wharf/</strong></td>
+              <td class="kw">pawnbroker canary wharf</td>
+              <td><span class="badge badge-critical">Highest</span></td>
+              <td>Physical address page, map embed, office details, local landmark references, services offered</td>
+            </tr>
+            <tr>
+              <td><strong>/london/</strong></td>
+              <td class="kw">pawnbroker london (1,300/mo)</td>
+              <td><span class="badge badge-critical">Highest</span></td>
+              <td>London-wide page linking to all borough pages, London market expertise, 600+ words unique content</td>
+            </tr>
+            <tr>
+              <td><strong>/isle-of-dogs/</strong></td>
+              <td class="kw">pawnbroker isle of dogs</td>
+              <td><span class="badge badge-high">High</span></td>
+              <td>Nearest borough to physical location, include local context</td>
+            </tr>
+            <tr>
+              <td><strong>/tower-hamlets/</strong></td>
+              <td class="kw">pawnbroker tower hamlets</td>
+              <td><span class="badge badge-high">High</span></td>
+              <td>Borough-level page, link to Canary Wharf, unique copy</td>
+            </tr>
+            <tr>
+              <td><strong>/greenwich/</strong></td>
+              <td class="kw">pawnbroker greenwich</td>
+              <td><span class="badge badge-high">High</span></td>
+              <td>Transport links from Greenwich to office, unique copy</td>
+            </tr>
+            <tr>
+              <td><strong>/east-london/</strong></td>
+              <td class="kw">pawnbroker east london</td>
+              <td><span class="badge badge-high">High</span></td>
+              <td>Cluster page for East London — link hub for all East London borough pages</td>
+            </tr>
+            <tr>
+              <td><strong>/essex/</strong></td>
+              <td class="kw">pawnbroker essex</td>
+              <td><span class="badge badge-medium">Medium</span></td>
+              <td>County-level page, mention DLR/Elizabeth Line access, 400+ words</td>
+            </tr>
+            <tr>
+              <td><strong>/kent/</strong></td>
+              <td class="kw">pawnbroker kent</td>
+              <td><span class="badge badge-medium">Medium</span></td>
+              <td>County-level page, unique content required</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="callout warning" style="margin-top:16px;">
+          <span class="callout-icon">⚠️</span>
+          <div class="callout-body"><strong>Location Page Minimum Requirements:</strong> Each page needs: unique H1, 400+ words of genuinely unique copy, embedded Google Map, local business schema, link to main service pages, mention of journey time/transport links from that area to the Canary Wharf office, and a "Get a Quote" CTA.</div>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-size:18px;font-weight:700;color:var(--navy);margin:24px 0 16px;">Local Citation Building (NAP Consistency)</h3>
+    <div class="two-col">
+      <div class="local-card">
+        <h4>🏢 Essential UK Citations</h4>
+        <ul>
+          <li>Google Business Profile ✅ (verify/optimise)</li>
+          <li>Bing Places for Business</li>
+          <li>Yell.com</li>
+          <li>Thomson Local</li>
+          <li>FreeIndex.co.uk</li>
+          <li>192.com / BT.com</li>
+          <li>Scoot.co.uk</li>
+          <li>HotFrog.co.uk</li>
+          <li>Cylex.co.uk</li>
+          <li>Yelp.co.uk</li>
+        </ul>
+      </div>
+      <div class="local-card">
+        <h4>🏦 Industry-Specific Citations</h4>
+        <ul>
+          <li>National Pawnbrokers Association (NPA) directory</li>
+          <li>FCA Register (ensure listing is complete)</li>
+          <li>Trustpilot (create and verify)</li>
+          <li>Checkatrade</li>
+          <li>Which? Trusted Traders</li>
+          <li>CompareTheLender.co.uk</li>
+          <li>MoneyFacts.co.uk lender directory</li>
+          <li>LoanOptions.co.uk / similar comparison sites</li>
+        </ul>
+        <p style="margin-top:10px;font-size:12px;color:var(--slate-light);">⚠️ Ensure NAP (Name, Address, Phone) is IDENTICAL across all listings: use "Loan Against Assets" as business name everywhere.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. NATIONAL STRATEGY -->
+  <section class="section" id="national">
+    <div class="section-header">
+      <div class="section-icon">🇬🇧</div>
+      <div>
+        <div class="section-num">Section 07</div>
+        <h2 class="section-title">National Organic Landing Page Strategy</h2>
+      </div>
+    </div>
+
+    <div class="callout info">
+      <span class="callout-icon">🎯</span>
+      <div class="callout-body">
+        <strong>National Strategy: "Loan Against Assets" as the Core Topical Pillar</strong>
+        The national strategy centres on building topical authority around "asset-backed loans" — owning every variation of the query across different asset types. The service is available UK-wide (online quotes + postal valuations), so national rankings for asset type terms are achievable without physical presence in every location.
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><h3>National Service Page Architecture (Hub & Spoke Model)</h3></div>
+      <div class="card-body">
+        <div style="background:#F7F8FA;border-radius:10px;padding:20px;font-size:13px;font-family:'DM Mono',monospace;line-height:2;">
+          <div style="color:var(--gold);font-weight:700;">/ (Homepage) — "Loan Against Assets UK"</div>
+          <div style="padding-left:20px;color:var(--navy-mid);">
+            <div>├── /loan-against-watch/ — Watch Loans Hub</div>
+            <div style="padding-left:24px;color:var(--slate);">│   ├── /loan-against-rolex/</div>
+            <div style="padding-left:24px;color:var(--slate);">│   └── /loan-against-luxury-watch/</div>
+            <div>├── /loan-against-gold/ — Gold & Precious Metals Hub</div>
+            <div style="padding-left:24px;color:var(--slate);">│   ├── /loan-against-silver/</div>
+            <div style="padding-left:24px;color:var(--slate);">│   └── /loan-against-platinum/</div>
+            <div>├── /loan-against-jewellery/ — Jewellery Loans Hub</div>
+            <div>├── /loan-against-car/ — Vehicle Loans Hub</div>
+            <div style="padding-left:24px;color:var(--slate);">│   └── /loan-against-classic-car/</div>
+            <div>├── /loan-against-property/ — Property Loans Hub</div>
+            <div style="padding-left:24px;color:var(--slate);">│   └── /loan-against-land/</div>
+            <div>├── /loan-against-cryptocurrency/ — Crypto Loans Hub</div>
+            <div>├── /loan-against-art/ — Fine Art & Collectibles</div>
+            <div>├── /loan-against-designer-handbag/ — Handbags & Accessories</div>
+            <div>└── /how-it-works/ — Process explainer</div>
+          </div>
+        </div>
+        <div style="margin-top:16px;font-size:13px;color:var(--slate);">Each hub page should: (1) target primary keyword in title, H1, URL, and intro; (2) contain 800–1,200 words of expert content; (3) include FAQPage schema; (4) link to the main homepage and related service pages; (5) include a prominent quote CTA.</div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:20px;">
+      <div class="card-head"><h3>Quick Win: "Loan Against Property UK" — KD 10, 880 monthly searches</h3></div>
+      <div class="card-body">
+        <p style="font-size:13.5px;color:var(--slate);margin-bottom:14px;">This keyword has a keyword difficulty of <strong>10/100</strong> — extremely low for a keyword with 880 monthly searches and a CPC of £64. This represents the highest-priority content creation opportunity on the entire site from a national rankings perspective.</p>
+        <div class="two-col">
+          <div>
+            <p style="font-size:13px;font-weight:600;margin-bottom:8px;">Why it's a quick win:</p>
+            <ul style="font-size:13px;color:var(--slate);padding-left:16px;line-height:2;">
+              <li>KD 10 means even a new domain can rank top 10</li>
+              <li>880/mo searches with commercial intent</li>
+              <li>CPC £64.40 signals very high-value traffic</li>
+              <li>Avg. referring domains to rank: only 52 — achievable</li>
+              <li>The business already lends against property</li>
+            </ul>
+          </div>
+          <div>
+            <p style="font-size:13px;font-weight:600;margin-bottom:8px;">Page brief:</p>
+            <ul style="font-size:13px;color:var(--slate);padding-left:16px;line-height:2;">
+              <li>H1: "Loan Against Property UK — Short-Term Asset Finance"</li>
+              <li>800+ words covering: property as collateral, LTV, process</li>
+              <li>Differentiate from standard mortgages/bridging loans</li>
+              <li>Include: types of property accepted, speed of funds</li>
+              <li>FAQPage schema with 5–8 common questions</li>
+              <li>Representative example (FCA requirement)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. BLOG AUDIT -->
+  <section class="section" id="blog">
+    <div class="section-header">
+      <div class="section-icon">✍️</div>
+      <div>
+        <div class="section-num">Section 08</div>
+        <h2 class="section-title">Blog Content Audit &amp; Strategy</h2>
+      </div>
+    </div>
+
+    <!-- Blog 1 Audit -->
+    <div class="card">
+      <div class="card-head">
+        <h3>Blog Audit: "The History and Modern Evolution of Pawnbroking in the UK"</h3>
+        <span class="badge badge-high">Needs Work</span>
+      </div>
+      <div class="card-body">
+        <div class="two-col">
+          <div>
+            <p style="font-size:13.5px;color:var(--slate);margin-bottom:12px;"><strong>Current Issues:</strong></p>
+            <div class="issue-list">
+              <div class="issue high" style="padding:10px 14px;">
+                <div class="issue-top"><span class="issue-title" style="font-size:13px;">URL typo: "ofpawnbroking" (missing hyphen)</span><span class="badge badge-high">High</span></div>
+                <p class="issue-desc" style="font-size:12px;">Cannot change now without 301 redirect. Flag for future URL architecture.</p>
+              </div>
+              <div class="issue medium" style="padding:10px 14px;">
+                <div class="issue-top"><span class="issue-title" style="font-size:13px;">No target keyword identified or optimised</span><span class="badge badge-medium">Medium</span></div>
+                <p class="issue-desc" style="font-size:12px;">Should target: "history of pawnbroking uk" or "how pawnbroking started uk"</p>
+              </div>
+              <div class="issue medium" style="padding:10px 14px;">
+                <div class="issue-top"><span class="issue-title" style="font-size:13px;">No internal links to service pages</span><span class="badge badge-medium">Medium</span></div>
+                <p class="issue-desc" style="font-size:12px;">Misses opportunity to drive readers to /loan-against-watch/, /loan-against-gold/</p>
+              </div>
+              <div class="issue low" style="padding:10px 14px;">
+                <div class="issue-top"><span class="issue-title" style="font-size:13px;">Good content structure but lacks FAQ schema</span><span class="badge badge-low">Low</span></div>
+                <p class="issue-desc" style="font-size:12px;">Add 5 FAQs at the bottom with FAQPage schema for PAA box opportunities</p>
+              </div>
+            </div>
+          </div>
+          <div>
+            <p style="font-size:13.5px;color:var(--slate);margin-bottom:12px;"><strong>NLP & Entity Optimisation:</strong></p>
+            <div style="font-size:13px;color:var(--slate);line-height:1.8;">
+              <p style="margin-bottom:8px;">Google's NLP (Natural Language Processing) identifies entities — named concepts it can confirm from its Knowledge Graph. This post should explicitly mention these entities:</p>
+              <ul style="padding-left:16px;line-height:2;">
+                <li>Financial Conduct Authority (FCA) — already present ✅</li>
+                <li>Consumer Credit Act 1974 — add this explicitly</li>
+                <li>National Pawnbrokers Association — add mention</li>
+                <li>Pawnbrokers Act 1872 — already mentioned ✅</li>
+                <li>Specific watch brands: Rolex, Patek Philippe — add for entity relevance</li>
+                <li>De Medici family — as historic pawnbroking entity</li>
+              </ul>
+              <p style="margin-top:10px;font-size:12.5px;background:#F7F8FA;padding:10px;border-radius:6px;border-left:3px solid var(--gold);">Add a "Query Fan-Out" section: "Related Questions" box at the bottom covering lateral queries like "What is the three golden balls symbol?", "Are pawnbrokers regulated in the UK?" — these capture semantic intent clusters.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Blog 2 Audit -->
+    <div class="card" style="margin-top:20px;">
+      <div class="card-head">
+        <h3>Blog Audit: "Loan Against Assets vs Personal Loan in the UK"</h3>
+        <span class="badge badge-medium">Good Foundation</span>
+      </div>
+      <div class="card-body">
+        <div class="two-col">
+          <div>
+            <p style="font-size:13px;font-weight:600;margin-bottom:8px;">Strengths:</p>
+            <ul style="font-size:13px;color:var(--slate);padding-left:16px;line-height:2;">
+              <li>Good topic — answers a real commercial question</li>
+              <li>URL slug is clean and descriptive</li>
+              <li>Targets comparison/informational intent</li>
+            </ul>
+            <p style="font-size:13px;font-weight:600;margin:12px 0 8px;">Improvements Needed:</p>
+            <ul style="font-size:13px;color:var(--slate);padding-left:16px;line-height:2;">
+              <li>Add a comparison table (HTML table, not an image)</li>
+              <li>H1 should include exact keyword phrase</li>
+              <li>Add structured data — Article schema + FAQPage</li>
+              <li>Add "Bottom Line" section with clear CTA to service pages</li>
+              <li>Expand to 1,500+ words to outrank thin competitors</li>
+            </ul>
+          </div>
+          <div>
+            <p style="font-size:13px;font-weight:600;margin-bottom:8px;">Semantic SEO / Entity Suggestions:</p>
+            <ul style="font-size:13px;color:var(--slate);padding-left:16px;line-height:2;">
+              <li>Add entity: "Consumer Credit Act" — relevant to both loan types</li>
+              <li>Add entity: "Annual Percentage Rate (APR)" — explain comparison</li>
+              <li>Add entity: "Secured vs Unsecured Loan" — core semantic cluster</li>
+              <li>Cover the Google NLP intent: "when is a pawnbroker loan better"</li>
+              <li>Reference Citizens Advice as a trust signal source</li>
+              <li>Add schema for the comparison table</li>
+            </ul>
+            <div style="margin-top:12px;background:var(--gold-pale);padding:10px 12px;border-radius:6px;border-left:3px solid var(--gold);font-size:12.5px;">
+              <strong>Internal Link:</strong> From this post, link to the Homepage, /loan-against-watch/, /loan-against-gold/, and /how-it-works/ with keyword-rich anchors.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- New Blog Topics -->
+    <div class="card" style="margin-top:20px;">
+      <div class="card-head"><h3>Recommended New Blog Topics</h3><span class="badge badge-info">Content Calendar</span></div>
+      <div class="card-body">
+        <table class="data-table">
+          <thead>
+            <tr><th>#</th><th>Blog Title</th><th>Target Query / Cluster</th><th>Funnel Stage</th><th>Priority</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>"What Can You Borrow Against? 12 Assets That Qualify for a Loan in the UK"</td>
+              <td class="kw">what assets can I borrow against UK</td>
+              <td>Top of Funnel</td>
+              <td><span class="badge badge-critical">Critical</span></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>"How Much Can You Get for a Rolex at a Pawnbroker? (2026 Guide)"</td>
+              <td class="kw">loan against rolex, rolex pawn value</td>
+              <td>Mid Funnel</td>
+              <td><span class="badge badge-high">High</span></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>"Loan Against Your Car UK: Logbook vs Asset Loan — Which is Better?"</td>
+              <td class="kw">loan against car, logbook loan comparison</td>
+              <td>Mid Funnel</td>
+              <td><span class="badge badge-high">High</span></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>"How Are Luxury Watches Valued for a Pawnbroker Loan?"</td>
+              <td class="kw">luxury watch valuation, watch loan uk</td>
+              <td>Mid Funnel</td>
+              <td><span class="badge badge-high">High</span></td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>"Gold Price Today and What It Means for Your Asset Loan"</td>
+              <td class="kw">loan against gold, gold price uk</td>
+              <td>Top of Funnel</td>
+              <td><span class="badge badge-high">High</span></td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>"Is a Pawnbroker Loan Right for You? Pros, Cons & Alternatives"</td>
+              <td class="kw">is it wise to borrow against assets</td>
+              <td>Top of Funnel</td>
+              <td><span class="badge badge-medium">Medium</span></td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>"Best Pawnbrokers in East London — An Expert's Guide 2026"</td>
+              <td class="kw">pawnbroker east london, pawnbroker canary wharf</td>
+              <td>Local/Mid Funnel</td>
+              <td><span class="badge badge-medium">Medium</span></td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>"The Buy, Borrow, Die Strategy: Using Asset Loans Like the Wealthy"</td>
+              <td class="kw">how do rich people borrow against assets</td>
+              <td>Top of Funnel</td>
+              <td><span class="badge badge-medium">Medium</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="callout info" style="margin-top:20px;">
+      <span class="callout-icon">📝</span>
+      <div class="callout-body">
+        <strong>Blog Formatting Standards (apply to all posts)</strong>
+        Every blog post should follow this structure: (1) Keyword in URL slug (&lt;7 words), (2) Optimised meta title &lt;60 chars, (3) H1 contains primary keyword, (4) First 100 words mention the target keyword naturally, (5) H2s as query fan-outs (answer related questions Google also shows), (6) Minimum 1 HTML comparison table or data table, (7) FAQPage schema with 5–8 Q&amp;As at bottom, (8) 2 internal links to service pages with keyword anchors, (9) Clear "Get a Quote" CTA in the body and at the end, (10) Article schema with author (Kawsar), datePublished, dateModified.
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. CRO -->
+  <section class="section" id="cro">
+    <div class="section-header">
+      <div class="section-icon">📈</div>
+      <div>
+        <div class="section-num">Section 09</div>
+        <h2 class="section-title">Conversion Rate Optimisation (CRO)</h2>
+      </div>
+    </div>
+
+    <!-- Homepage CRO Wireframe -->
+    <h3 style="font-size:18px;font-weight:700;color:var(--navy);margin-bottom:16px;">Homepage CRO — Recommended Redesign</h3>
+    <div class="wireframe-container">
+      <div class="wireframe-label">🖥 Annotated CRO Wireframe — Homepage (Recommended)</div>
+      <div class="wf-browser">
+        <div class="wf-topbar">
+          <div class="wf-dot" style="background:#FF5F57"></div>
+          <div class="wf-dot" style="background:#FEBC2E"></div>
+          <div class="wf-dot" style="background:#28C840"></div>
+          <div class="wf-url">loanagainstassets.co.uk</div>
+        </div>
+        <!-- Nav -->
+        <div class="wf-nav">
+          <div class="wf-nav-logo">LoanAgainstAssets</div>
+          <div class="wf-nav-links">
+            <span class="wf-nav-link">How It Works</span>
+            <span class="wf-nav-link">What We Lend Against ▾</span>
+            <span class="wf-nav-link">Calculator</span>
+            <span class="wf-nav-link">Blog</span>
+            <span class="wf-nav-link">About</span>
+          </div>
+          <div class="wf-nav-cta">📞 Get a Quote</div>
+        </div>
+        <!-- Hero -->
+        <div class="wf-hero-hp">
+          <div class="wf-hero-badge">⭐ FCA Regulated · No Credit Check · Same Day Funds</div>
+          <div class="wf-hero-h1">Get a Fast Loan Against<br>Your Valuable Assets</div>
+          <div class="wf-hero-sub">Borrow from £150 to £100,000 against watches, gold, jewellery, cars, and property. Discreet, professional, and FCA-regulated since 2012.</div>
+          <div class="wf-hero-ctas">
+            <div class="wf-btn-primary">💬 Get My Free Valuation</div>
+            <div class="wf-btn-sec">📊 Use Loan Calculator</div>
+          </div>
+        </div>
+        <div class="wf-trust-strip">
+          <div class="wf-trust-item"><span class="wf-trust-icon">✓</span> FCA Reg: 741298</div>
+          <div class="wf-trust-item"><span class="wf-trust-icon">✓</span> No Credit Checks</div>
+          <div class="wf-trust-item"><span class="wf-trust-icon">✓</span> Same-Day Funds</div>
+          <div class="wf-trust-item"><span class="wf-trust-icon">✓</span> 5% Monthly Rate</div>
+          <div class="wf-trust-item"><span class="wf-trust-icon">✓</span> Assets Fully Insured</div>
+        </div>
+        <!-- Asset Grid -->
+        <div class="wf-assets-strip">
+          <div class="wf-assets-title">We Lend Against These Assets</div>
+          <div class="wf-assets-grid">
+            <div class="wf-asset-tile"><div class="wf-asset-icon">⌚</div><div class="wf-asset-label">Watches</div></div>
+            <div class="wf-asset-tile"><div class="wf-asset-icon">💍</div><div class="wf-asset-label">Jewellery</div></div>
+            <div class="wf-asset-tile"><div class="wf-asset-icon">🪙</div><div class="wf-asset-label">Gold & Silver</div></div>
+            <div class="wf-asset-tile"><div class="wf-asset-icon">🚗</div><div class="wf-asset-label">Cars</div></div>
+            <div class="wf-asset-tile"><div class="wf-asset-icon">🏠</div><div class="wf-asset-label">Property</div></div>
+            <div class="wf-asset-tile"><div class="wf-asset-icon">🎨</div><div class="wf-asset-label">Art</div></div>
+          </div>
+        </div>
+        <!-- Social Proof -->
+        <div class="wf-social-proof">
+          <div class="wf-sp-item"><div class="wf-sp-num">£45M+</div><div class="wf-sp-label">Loans Funded</div></div>
+          <div class="wf-sp-item"><div class="wf-sp-num">2,000+</div><div class="wf-sp-label">Happy Clients</div></div>
+          <div class="wf-sp-item"><div class="wf-sp-num">Since 2012</div><div class="wf-sp-label">Established</div></div>
+          <div class="wf-sp-item"><div class="wf-sp-num">4.9★</div><div class="wf-sp-label">Trustpilot</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:20px;">
+      <div class="card-head"><h3>Homepage CRO Issues vs Recommendations</h3></div>
+      <div class="card-body">
+        <table class="data-table">
+          <thead><tr><th>Current State</th><th>Recommended Change</th><th>Why It Converts</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>CTA: "Get My Quote" (buried in form)</td>
+              <td>Sticky header CTA: "Get My Free Valuation" button always visible</td>
+              <td>Users can convert at any point in scroll journey</td>
+            </tr>
+            <tr>
+              <td>No trust signals above the fold</td>
+              <td>Trust strip below hero: FCA reg number, no credit check, same-day funds</td>
+              <td>Financial services require trust signals — reduces bounce from "is this legit?" doubt</td>
+            </tr>
+            <tr>
+              <td>No social proof anywhere on site</td>
+              <td>Stats section: loans funded, clients served, star rating</td>
+              <td>Social proof is the #1 conversion driver for financial services</td>
+            </tr>
+            <tr>
+              <td>Asset categories shown as vague images</td>
+              <td>Clickable asset tile grid linking to service pages</td>
+              <td>Helps users self-identify their asset and self-qualify</td>
+            </tr>
+            <tr>
+              <td>Long form on homepage</td>
+              <td>Short "Get Valuation" form: Name, Phone, Asset Type, Estimated Value — 4 fields max</td>
+              <td>Every additional form field reduces conversions by ~20%</td>
+            </tr>
+            <tr>
+              <td>No WhatsApp CTA</td>
+              <td>Add sticky WhatsApp button bottom-right (target audience likely uses WhatsApp for enquiries)</td>
+              <td>Alternative contact channel for users who don't want to fill forms</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Service Page CRO Wireframe -->
+    <h3 style="font-size:18px;font-weight:700;color:var(--navy);margin:28px 0 16px;">Service Page CRO — Recommended Template</h3>
+    <div class="wireframe-container">
+      <div class="wireframe-label">📄 Annotated CRO Wireframe — Service Page Template (e.g., /loan-against-watch/)</div>
+      <div class="wf-browser">
+        <div class="wf-topbar">
+          <div class="wf-dot" style="background:#FF5F57"></div>
+          <div class="wf-dot" style="background:#FEBC2E"></div>
+          <div class="wf-dot" style="background:#28C840"></div>
+          <div class="wf-url">loanagainstassets.co.uk/loan-against-watch/</div>
+        </div>
+        <div style="background:#0D1B2A;padding:10px 20px;display:flex;align-items:center;gap:8px;font-size:11px;color:rgba(255,255,255,0.5);">
+          <span>Home</span><span style="color:#C9A84C">›</span><span>Services</span><span style="color:#C9A84C">›</span><span style="color:#C9A84C">Loan Against Watch</span>
+        </div>
+        <div style="display:grid;grid-template-columns:2fr 1fr;background:white;">
+          <div style="padding:20px 24px;">
+            <div style="background:#FEF9E7;border-left:3px solid #C9A84C;padding:8px 12px;font-size:11px;color:#7D6608;margin-bottom:12px;">⚡ Same-Day Funds · No Credit Check · FCA Regulated</div>
+            <h1 style="font-size:22px;font-weight:700;color:#0D1B2A;margin-bottom:8px;font-family:'Playfair Display',serif;">Loan Against a Watch UK</h1>
+            <p style="font-size:12px;color:#718096;margin-bottom:12px;">Borrow from £500 to £100,000 against Rolex, Patek Philippe, Omega, IWC, Audemars Piguet and more. Competitive rates, full insurance, complete discretion.</p>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;">
+              <div style="background:#F7F8FA;border:1px solid #E2E8F0;border-radius:6px;padding:8px 10px;font-size:10px;text-align:center;min-width:80px;"><strong style="display:block;color:#0D1B2A;font-size:14px;">5%</strong>Monthly Rate</div>
+              <div style="background:#F7F8FA;border:1px solid #E2E8F0;border-radius:6px;padding:8px 10px;font-size:10px;text-align:center;min-width:80px;"><strong style="display:block;color:#0D1B2A;font-size:14px;">24hr</strong>Typical Funding</div>
+              <div style="background:#F7F8FA;border:1px solid #E2E8F0;border-radius:6px;padding:8px 10px;font-size:10px;text-align:center;min-width:80px;"><strong style="display:block;color:#0D1B2A;font-size:14px;">60%</strong>APR Fixed</div>
+              <div style="background:#F7F8FA;border:1px solid #E2E8F0;border-radius:6px;padding:8px 10px;font-size:10px;text-align:center;min-width:80px;"><strong style="display:block;color:#0D1B2A;font-size:14px;">✓ </strong>No Credit Check</div>
+            </div>
+            <div style="font-size:11px;color:#718096;line-height:1.8;">
+              <p style="font-weight:600;color:#0D1B2A;margin-bottom:4px;">Watches We Lend Against:</p>
+              <span style="background:#F0F4FF;border-radius:12px;padding:2px 8px;margin:2px;display:inline-block;">Rolex</span>
+              <span style="background:#F0F4FF;border-radius:12px;padding:2px 8px;margin:2px;display:inline-block;">Patek Philippe</span>
+              <span style="background:#F0F4FF;border-radius:12px;padding:2px 8px;margin:2px;display:inline-block;">Omega</span>
+              <span style="background:#F0F4FF;border-radius:12px;padding:2px 8px;margin:2px;display:inline-block;">Audemars Piguet</span>
+              <span style="background:#F0F4FF;border-radius:12px;padding:2px 8px;margin:2px;display:inline-block;">IWC</span>
+              <span style="background:#F0F4FF;border-radius:12px;padding:2px 8px;margin:2px;display:inline-block;">Breitling</span>
+            </div>
+          </div>
+          <div style="background:#F7F8FA;padding:16px;border-left:1px solid #E2E8F0;">
+            <p style="font-size:11px;font-weight:700;color:#0D1B2A;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;">Get Your Watch Valued</p>
+            <div style="display:flex;flex-direction:column;gap:6px;font-size:11px;">
+              <input style="background:white;border:1px solid #CBD5E0;border-radius:4px;padding:8px 10px;width:100%;font-size:11px;" placeholder="Your Name" readonly>
+              <input style="background:white;border:1px solid #CBD5E0;border-radius:4px;padding:8px 10px;width:100%;font-size:11px;" placeholder="Phone Number" readonly>
+              <select style="background:white;border:1px solid #CBD5E0;border-radius:4px;padding:8px 10px;width:100%;font-size:11px;"><option>Watch Brand (e.g. Rolex)</option></select>
+              <input style="background:white;border:1px solid #CBD5E0;border-radius:4px;padding:8px 10px;width:100%;font-size:11px;" placeholder="Estimated Value (£)" readonly>
+              <div style="background:#C9A84C;color:#0D1B2A;padding:10px;border-radius:4px;text-align:center;font-size:11px;font-weight:700;margin-top:4px;">Get My Free Valuation →</div>
+              <p style="font-size:9px;color:#A0AEC0;text-align:center;margin-top:4px;">FCA Reg 741298 · No credit check · 100% discreet</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:20px;">
+      <div class="card-head"><h3>Blog Post CRO — Recommended Template</h3></div>
+      <div class="card-body">
+        <table class="data-table">
+          <thead><tr><th>Location in Post</th><th>CRO Element</th><th>Why</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>Top of post (after intro)</td>
+              <td>Yellow "Quick Answer" box: "Thinking about a loan against your assets? <strong>Get a free valuation in 60 seconds →</strong>"</td>
+              <td>Captures users who already know they want a loan</td>
+            </tr>
+            <tr>
+              <td>After H2 #2 (mid-content)</td>
+              <td>Contextual CTA inline: e.g., within "loan against watch" content — "📞 Want a Rolex valuation? Call us today"</td>
+              <td>Converts high-intent readers in context</td>
+            </tr>
+            <tr>
+              <td>After article (before comments/footer)</td>
+              <td>Full "Get a Quote" widget — compact form + trust signals</td>
+              <td>Captures users who read to the end (highest intent)</td>
+            </tr>
+            <tr>
+              <td>Sidebar (if available)</td>
+              <td>Sticky sidebar with asset type checklist + CTA</td>
+              <td>Always visible during scroll</td>
+            </tr>
+            <tr>
+              <td>Exit intent / scroll-trigger</td>
+              <td>Slide-in popup after 60% scroll: "Need a loan against your asset? Get a free quote in 2 minutes."</td>
+              <td>Recovers users about to leave without converting</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- PRIORITY ROADMAP -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon">🗺️</div>
+      <div>
+        <div class="section-num">Section 10</div>
+        <h2 class="section-title">90-Day Priority Roadmap</h2>
+      </div>
+    </div>
+
+    <div class="three-col">
+      <div class="card">
+        <div class="card-head" style="background:rgba(192,57,43,0.07);">
+          <h3 style="color:#C0392B;">🔴 Month 1 — Fix the Foundations</h3>
+        </div>
+        <div class="card-body">
+          <ul style="font-size:13px;color:var(--slate);padding-left:16px;line-height:2.2;">
+            <li>Change site title from "My Blog" → brand name</li>
+            <li>Install Yoast/RankMath SEO plugin</li>
+            <li>Write & set meta titles + descriptions for all pages</li>
+            <li>Fix H1 tags on all existing pages</li>
+            <li>Submit sitemaps to Google Search Console</li>
+            <li>Set up Google Analytics 4 + GSC properly</li>
+            <li>Create Google Business Profile & verify</li>
+            <li>Submit to top 10 UK citation directories</li>
+            <li>Add LocalBusiness schema to homepage</li>
+            <li>Compress all images, convert to WebP</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-head" style="background:rgba(230,126,34,0.07);">
+          <h3 style="color:#D35400;">🟠 Month 2 — Build Service Pages</h3>
+        </div>
+        <div class="card-body">
+          <ul style="font-size:13px;color:var(--slate);padding-left:16px;line-height:2.2;">
+            <li>Create /loan-against-property/ (KD 10!)</li>
+            <li>Create /loan-against-watch/</li>
+            <li>Create /loan-against-gold/</li>
+            <li>Create /loan-against-car/</li>
+            <li>Create /how-it-works/ process page</li>
+            <li>Rebuild /london/ & /canary-wharf/ with full content</li>
+            <li>Add FAQPage schema to all service pages</li>
+            <li>Improve /loan-calculator/ with interactive JS</li>
+            <li>Add internal links from blog → service pages</li>
+            <li>Start Trustpilot review collection</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-head" style="background:rgba(39,174,96,0.07);">
+          <h3 style="color:#1E8449;">🟢 Month 3 — Content & Links</h3>
+        </div>
+        <div class="card-body">
+          <ul style="font-size:13px;color:var(--slate);padding-left:16px;line-height:2.2;">
+            <li>Publish 3 new blog posts (top recommendations)</li>
+            <li>Optimise existing 4 blog posts per audit</li>
+            <li>Outreach to FCA/NPA for citation links</li>
+            <li>Create /loan-against-jewellery/ page</li>
+            <li>Add 5 remaining East London location pages</li>
+            <li>HARO/Qwoted outreach for journalist links</li>
+            <li>Create Open Graph images for all pages</li>
+            <li>Add Article schema to all blog posts</li>
+            <li>Implement CRO changes on homepage</li>
+            <li>Set up monthly KPI reporting in GSC</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>Prepared exclusively for <span>LoanAgainstAssets.co.uk</span> by <span>YukariSEO</span> · April 2026</p>
+  <p style="margin-top:6px;">Confidential — Not for distribution. Data sourced from DataForSEO, Google SERP analysis, and direct site crawl.</p>
+</footer>
+
+<script>
+  // Smooth scroll for nav dots
+  const sections = ['hero','technical','onpage','offpage','keywords','newpages','local','national','blog','cro'];
+  function scrollTo(id) {
+    const el = document.getElementById(id);
+    if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+  // Activate nav dots on scroll
+  const dots = document.querySelectorAll('.nav-dot');
+  window.addEventListener('scroll', () => {
+    let active = 0;
+    sections.forEach((id, i) => {
+      const el = document.getElementById(id);
+      if(el && el.getBoundingClientRect().top < window.innerHeight * 0.5) active = i;
+    });
+    dots.forEach((d,i) => d.classList.toggle('active', i === active));
+  });
+</script>
+</body>
+</html>
